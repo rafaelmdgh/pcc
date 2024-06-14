@@ -7,8 +7,9 @@ if($_POST){
     $valor = $_POST['valor'];
     $dt_vencimento = $_POST['dt_vencimento'];
     $observacao = $_POST['observacao'];
+    $dataAtual = date("Y-m-d");
 
-    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_codigo_fornecedor, pagar_valor, pagar_dt_vencimento, pagar_observacao) VALUES (:usuario, :fornecedor, :valor, :dt_vencimento, :observacao)";
+    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_codigo_fornecedor, pagar_valor, pagar_dt_vencimento, pagar_observacao, pagar_dt_emissao) VALUES (:usuario, :fornecedor, :valor, :dt_vencimento, :observacao, :dt_emissao)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':usuario', $usuario);
@@ -16,6 +17,7 @@ if($_POST){
     $stmt->bindValue(':valor', str_replace(',','.',$valor));
     $stmt->bindValue(':dt_vencimento', $dt_vencimento);
     $stmt->bindValue(':observacao', $observacao);
+    $stmt->bindValue(':dt_emissao', $dataAtual);
     $stmt->execute();
     echo "<br>Cadastrado com sucesso!";
     echo "<br><a href='lista.php'>Lista de contas_pagars</a>";
