@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <?php 
+		include ('../verifica-sessao.php');
+    ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de metas</title>
+</head>
+<body>
+<h1>Cadastro de metas</h1>
+    <br>
+    <form action="salvar_cadastro.php" method="post" enctype="multipart/form-data">
+        <p>Nome</p>
+        <p><input type="text" name="nome" id="nome" required></p>
+        <br>
+        <p>Valor</p>
+        <p><input type="text" name="valor" id="valor"></p>
+        <br>
+        <p>Imagem</p>
+        <p><input type="file" name="imagem" id="imagem" accept="image/png, image/jpeg, image/jpg, image/gif" ></p>
+        <br>
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+</html>
