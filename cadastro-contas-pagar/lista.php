@@ -19,7 +19,7 @@ $contas_pagar = $stmt->fetchAll();
 <body>
     <h1>Lista de contas_pagars</h1>
     <p><a href="../index.php">Home</a></p>
-    <input type="button" value="Baixar" >
+    <input class="btn btn-primary" type="button" value="Baixar" >
     <table border=1>
         <tr>
             <th></th>
