@@ -16,16 +16,18 @@ $contas_pagar = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa Teste</title>
 </head>
-<body> 
+<body>
+<div class="container"> 
     <h1>Lista de contas_pagars</h1>
     <p><a href="../index.php">Home</a></p>
+    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
     <form action="baixar_registros.php" method="get">
         <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
         <input class="btn btn-primary" type="submit" value="Baixar">
     </form>   
     <table border=1>
         <tr>
-            <th></th>
+            <th>Seleção</th>
             <th>Número Lançamento</th>
             <th>Data de Vencimento</th>
             <th>Fornecedor</th>
@@ -38,7 +40,11 @@ $contas_pagar = $stmt->fetchAll();
         <?php 
         foreach ($contas_pagar as $pagar) {
             echo "<tr>";
-            echo '<td><input type="checkbox" name="'.$pagar['pagar_nr_lancamento'].'" id="selecaoBaixar" onclick="salvarSelecao('.$pagar['pagar_nr_lancamento'].',checked)"></td>';
+            echo "<td>";
+            if ($pagar['pagar_dt_baixa'] == '0000-00-00'){
+                echo '<input type="checkbox" name="'.$pagar['pagar_nr_lancamento'].'" id="selecaoBaixar" onclick="salvarSelecao('.$pagar['pagar_nr_lancamento'].',checked)"></td>';
+            }
+            echo "</td>";    
             echo "<td>" . $pagar['pagar_nr_lancamento']."</td>";
             echo "<td>" . $pagar['pagar_dt_vencimento']."</td>";
             echo "<td>" . $pagar['fornecedor_nome']."</td>";
@@ -52,7 +58,6 @@ $contas_pagar = $stmt->fetchAll();
         
         ?>
     </table>
-    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
     <script>
         function salvarSelecao(valor, selecionado) {
             registrosSelecionados = document.getElementById("registrosSelecionados");
@@ -66,5 +71,6 @@ $contas_pagar = $stmt->fetchAll();
             }    
         }
     </script>
+</div>
 </body>
 </html>

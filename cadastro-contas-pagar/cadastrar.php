@@ -22,6 +22,7 @@
     <title>Contas a Pagar</title>
 </head>
 <body>
+<div class="container">
 <h1>Contas a pagar</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
@@ -49,5 +50,6 @@
         <p><textarea name="observacao" id="observacao"></textarea></p>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

@@ -14,6 +14,7 @@
     <title>Cadastro de historicos</title>
 </head>
 <body>
+<div class="container">
 <h1>Cadastro de historicos</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
@@ -35,5 +36,6 @@
         </p>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

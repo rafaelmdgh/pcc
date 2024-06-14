@@ -22,6 +22,7 @@ $usuario = $stmt->fetch();
     <title>Empresa Teste</title>
 </head>
 <body>
+<div class="container">
 <h1>Editar de usuários</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
@@ -37,5 +38,6 @@ $usuario = $stmt->fetch();
         <br>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

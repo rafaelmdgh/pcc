@@ -10,8 +10,9 @@
   <title>Login</title>
 </head>
 <body>
+<div class="container">
   <center>
-    <div class="container">
+    
       <h1>Login</h1><br>
       <section id="" class=".container-md">
         <form action="logar.php" method="post">
@@ -25,5 +26,6 @@
       </section>
     </
   </center>
+</div>
 </body>
 </html>

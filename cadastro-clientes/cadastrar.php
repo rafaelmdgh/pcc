@@ -9,6 +9,7 @@
     <title>Cadastro de Clientes</title>
 </head>
 <body>
+<div class="container">
 <h1>Cadastro de clientes</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
@@ -20,5 +21,6 @@
         <br>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

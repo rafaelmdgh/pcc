@@ -22,6 +22,7 @@ $fornecedor = $stmt->fetch();
     <title>Empresa Teste</title>
 </head>
 <body>
+<div class="container">
 <h1>Editar fornecedor</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
@@ -34,5 +35,6 @@ $fornecedor = $stmt->fetch();
         <br>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

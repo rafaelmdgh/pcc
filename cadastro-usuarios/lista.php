@@ -17,6 +17,7 @@ $usuarios = $stmt->fetchAll();
     <title>Empresa Teste</title>
 </head>
 <body>
+<div class="container">
     <h1>Lista de usuários</h1>
     <br>
     <p><a href="../index.php">Home</a></p>
@@ -39,5 +40,6 @@ $usuarios = $stmt->fetchAll();
           }
         ?>
     </table>
+</div>
 </body>
 </html>

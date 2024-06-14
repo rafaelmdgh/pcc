@@ -22,6 +22,7 @@ $contas_receber = $stmt->fetch();
     <title>Empresa Teste</title>
 </head>
 <body>
+<div class="container">
 <h1>Editar contas_receber</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
@@ -34,5 +35,6 @@ $contas_receber = $stmt->fetch();
         <br>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

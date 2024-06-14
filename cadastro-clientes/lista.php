@@ -17,6 +17,8 @@ $clientes = $stmt->fetchAll();
     <title>Empresa Teste</title>
 </head>
 <body>
+<div class="container">
+    
     <h1>Lista de Clientes</h1>
     <p><a href="../index.php">Home</a></p>
     <table border=1>
@@ -39,5 +41,7 @@ $clientes = $stmt->fetchAll();
         ?>
     </table>
     <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+    </div>
+</div>
 </body>
 </html>

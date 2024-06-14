@@ -29,6 +29,7 @@ $fornecedores = $stmt->fetchAll();
     <title>Empresa Teste</title>
 </head>
 <body>
+<div class="container">
 <h1>Editar Conta a Pagar</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
@@ -60,5 +61,6 @@ $fornecedores = $stmt->fetchAll();
         <p><textarea name="observacao" id="observacao"><?php echo $contas_pagar['pagar_observacao'];?></textarea></p>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>

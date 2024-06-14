@@ -9,6 +9,7 @@
 		<title>Home Page</title>
 	</head>
 	<body>
+<div class="container">
 
 		<h1>Olá, <?php echo $_SESSION['usuario_nome'] ?></h1>
 		<p>
@@ -29,5 +30,6 @@
 		<p>
 			<a href="cadastro-metas/lista.php">Cadastro de Metas</a>
 		</p>
-	</body>
+	</div>
+</body>
 </html>

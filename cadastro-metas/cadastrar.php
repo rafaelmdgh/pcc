@@ -9,6 +9,7 @@
     <title>Cadastro de metas</title>
 </head>
 <body>
+<div class="container">
 <h1>Cadastro de metas</h1>
     <br>
     <form action="salvar_cadastro.php" method="post" enctype="multipart/form-data">
@@ -23,5 +24,6 @@
         <br>
         <input type="submit" value="Salvar">
     </form>
+</div>
 </body>
 </html>
