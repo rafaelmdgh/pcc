@@ -1,7 +1,7 @@
 <?php
 include('../config/conexao_pdo.php');
 include(ROOT_PATH.'cabecalho.php');
-$stmt = $pdo->prepare("SELECT * FROM meta WHERE meta_usuario = ".$_SESSION["usuario_codigo"].";");
+$stmt = $pdo->prepare("SELECT * FROM meta WHERE meta_usuario = ".$_SESSION["usuario_codigo"]." LIMIT 15;");
 
 $stmt->execute();
 
@@ -21,8 +21,9 @@ $metas = $stmt->fetchAll();
     
         
         <h1>Lista de metas</h1>
-        <p><a href="../index.php">Home</a></p>
+        
         <table border=1>
+<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
@@ -41,7 +42,7 @@ $metas = $stmt->fetchAll();
             
             ?>
         </table>
-        <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+        
     </div>    
 </div>
 </body>

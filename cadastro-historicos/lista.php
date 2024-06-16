@@ -19,8 +19,9 @@ $historicos = $stmt->fetchAll();
 <body>
 <div class="container">
     <h1>Lista de historicos</h1>
-    <p><a href="../index.php">Home</a></p>
+    
     <table border=1>
+<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -41,7 +42,7 @@ $historicos = $stmt->fetchAll();
         
         ?>
     </table>
-    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+    
 </div>
 </body>
 </html>

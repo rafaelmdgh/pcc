@@ -13,25 +13,28 @@
 <div class="container">
 	<header width="100%">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-1">
+				<a href="/pcc/index.php">Home</a>
+			</div>
+			<div class="col-md-1">
 			</div>
 			<div class="col-md-1" onclick="alert(a)">
-				A
+				<a href="/pcc/cadastro-fornecedores/lista.php">Fornecedores</a>
 			</div>
 			<div class="col-md-1">
-				B
+				<a href="/pcc/cadastro-clientes/lista.php">Clientes</a>
 			</div>
 			<div class="col-md-1">
-				C
+				<a href="/pcc/cadastro-historicos/lista.php">Históricos</a>
 			</div>
 			<div class="col-md-1">
-				D
+				<a href="/pcc/cadastro-contas-pagar/lista.php">Contas a Pagar</a>
 			</div>
 			<div class="col-md-1">
-				E
+				<a href="/pcc/cadastro-contas-receber/lista.php">Contas a Receber</a>
 			</div>
 			<div class="col-md-1">
-				F
+				<a href="/pcc/cadastro-metas/lista.php">Metas</a>
 			</div>
 			<div class="col-md-2">
 			</div>

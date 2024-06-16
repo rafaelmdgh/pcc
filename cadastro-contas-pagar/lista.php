@@ -19,13 +19,14 @@ $contas_pagar = $stmt->fetchAll();
 <body>
 <div class="container"> 
     <h1>Lista de contas_pagars</h1>
-    <p><a href="../index.php">Home</a></p>
-    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+    
+    
     <form action="baixar_registros.php" method="get">
         <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
         <input class="btn btn-primary" type="submit" value="Baixar">
     </form>   
     <table border=1>
+<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Seleção</th>
             <th>Número Lançamento</th>

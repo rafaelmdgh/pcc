@@ -20,9 +20,10 @@ $usuarios = $stmt->fetchAll();
 <div class="container">
     <h1>Lista de usuários</h1>
     <br>
-    <p><a href="../index.php">Home</a></p>
+    
     <p><a href="cadastrar.php">Cadastrar Usuários</a></p>
     <table border=1>
+<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Id</th>
             <th>Nome</th>

@@ -19,8 +19,9 @@ $contas_recebers = $stmt->fetchAll();
 <body>
 <div class="container">
     <h1>Lista de contas_recebers</h1>
-    <p><a href="../index.php">Home</a></p>
+    
     <table border=1>
+<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -39,7 +40,7 @@ $contas_recebers = $stmt->fetchAll();
         
         ?>
     </table>
-    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+    
 </div>
 </body>
 </html>
