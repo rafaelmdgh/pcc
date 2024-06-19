@@ -6,11 +6,11 @@
 		include ('../verifica-sessao.php');
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de fornecedors</title>
+    <title>Cadastro de Fornecedores</title>
 </head>
 <body>
 <div class="container">
-<h1>Cadastro de fornecedors</h1>
+<h1>Cadastro de Fornecedores</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Nome</p>

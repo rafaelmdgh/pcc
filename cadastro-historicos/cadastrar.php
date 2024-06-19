@@ -11,11 +11,11 @@
         $tipos = $stmt->fetchAll();
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de historicos</title>
+    <title>Cadastro de Históricos</title>
 </head>
 <body>
 <div class="container">
-<h1>Cadastro de historicos</h1>
+<h1>Cadastro de Históricos</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Nome</p>

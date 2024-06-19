@@ -24,7 +24,7 @@
         }
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contas a Pagar</title>
+    <title>Pagamentos</title>
 </head>
 <body>
 <div class="container">

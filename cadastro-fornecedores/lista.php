@@ -5,7 +5,7 @@ $stmt = $pdo->prepare("SELECT * FROM fornecedor WHERE fornecedor_usuario = ".$_S
 
 $stmt->execute();
 
-$fornecedors = $stmt->fetchAll();
+$fornecedores = $stmt->fetchAll();
 
 
 ?>
@@ -18,7 +18,7 @@ $fornecedors = $stmt->fetchAll();
 </head>
 <body>
 <div class="container">
-    <h1>Lista de fornecedors</h1>
+    <h1>Lista de Fornecedores</h1>
     
     <table border=1>
 <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
@@ -29,7 +29,7 @@ $fornecedors = $stmt->fetchAll();
             <th>Ações</th>
         </tr>
         <?php 
-        foreach ($fornecedors as $fornecedor) {
+        foreach ($fornecedores as $fornecedor) {
             echo "<tr>";
             echo "<td>" . $fornecedor['fornecedor_codigo']."</td>";
             echo "<td>" . $fornecedor['fornecedor_nome']."</td>";

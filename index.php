@@ -22,10 +22,10 @@
 			<a href="cadastro-historicos/lista.php">Cadastro de Históricos</a>
 		</p>
 		<p>
-			<a href="cadastro-contas-pagar/lista.php">Cadastro de Contas a Pagar</a>
+			<a href="cadastro-contas-pagar/lista.php">Cadastro de Pagamentos</a>
 		</p>
 		<p>
-			<a href="cadastro-contas-receber/lista.php">Cadastro de Contas a Receber</a>
+			<a href="cadastro-contas-receber/lista.php">Cadastro de Recebimentos</a>
 		</p>
 		<p>
 			<a href="cadastro-metas/lista.php">Cadastro de Metas</a>

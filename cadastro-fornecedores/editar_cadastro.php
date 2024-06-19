@@ -19,7 +19,7 @@ if($_POST){
     $stmt->execute();
 
     echo "<br>Cadastrado com sucesso!";
-    echo "<br><a href='lista.php'>Lista de fornecedors</a>";
+    echo "<br><a href='lista.php'>Lista de Fornecedores</a>";
 } else {
     echo "ERRO! Informe os dados";
 }
