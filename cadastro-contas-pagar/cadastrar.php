@@ -10,6 +10,11 @@
         $stmt->execute();
         $fornecedores = $stmt->fetchAll();
 
+        $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historico where historico_usuario = ".$_SESSION['usuario_codigo'].";";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $historicos = $stmt->fetchAll();
+
         $sql = "SELECT MAX(pagar_nr_lancamento) as ultima_insercao from contas_pagar where pagar_usuario = ".$_SESSION['usuario_codigo'].";";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -42,6 +47,17 @@
         <br>
         <p>Valor a Pagar</p>
         <p><input type="text" name="valor" id="valor" required></p>
+        <br>
+        <p>Histórico</p>
+        <p><select name="historico" id="historico" required>
+                <option value="" selected>Selecione</option>
+                <?php
+                    foreach ($historicos as $historico){
+                        echo "<option value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                    }
+                ?>
+            </select>
+        </p>
         <br>
         <p>Data de Vencimento</p>
         <p><input type="date" name="dt_vencimento" id="dt_vencimento" required></p>
