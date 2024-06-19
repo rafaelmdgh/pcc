@@ -10,7 +10,7 @@ if($_POST){
     $observacao = $_POST['observacao'];
     $dataAtual = date("Y-m-d");
 
-    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_codigo_fornecedor, pagar_valor, pagar_dt_vencimento, pagar_observacao, pagar_dt_emissao, pagar_historico) VALUES (:usuario, :fornecedor, :valor, :dt_vencimento, :observacao, :dt_emissao, :historico)";
+    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_codigo_fornecedor, pagar_valor, pagar_dt_vencimento, pagar_observacao, pagar_dt_emissao, pagar_codigo_historico) VALUES (:usuario, :fornecedor, :valor, :dt_vencimento, :observacao, :dt_emissao, :historico)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':usuario', $usuario);
