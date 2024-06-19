@@ -23,7 +23,7 @@ $historico = $stmt->fetch();
 </head>
 <body>
 <div class="container">
-<h1>Editar historico</h1>
+<h1>Editar Histórico</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
         <input type="hidden" name="codigo" id="codigo" value="<?php echo $historico['historico_codigo']; ?>">

@@ -45,7 +45,7 @@ if($_POST){
                     $stmt->bindValue(':codigo', $metaCodigo);
                     $stmt->execute();
                     echo "<br>Cadastrado com sucesso!";
-                    echo "<br><a href='lista.php'>Lista de metas</a>";
+                    echo "<br><a href='lista.php'>Lista de Metas</a>";
                 }
             }
         }

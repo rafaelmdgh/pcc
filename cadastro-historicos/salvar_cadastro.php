@@ -16,7 +16,7 @@ if($_POST){
     $stmt->bindValue(':tipo', $tipo);
     $stmt->execute();
     echo "<br>Cadastrado com sucesso!";
-    echo "<br><a href='lista.php'>Lista de historicos</a>";
+    echo "<br><a href='lista.php'>Lista de Históricos</a>";
 } else {
     echo "ERRO! Informe os dados";
 }

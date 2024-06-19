@@ -6,7 +6,7 @@ if($_POST){
     $nome = $_POST["nome"];
     $valor_limite = $_POST['valor_limite'];
 
-    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_nome, pagar_valor_limite) VALUES (:usuario, :nome, :valor_limite)";
+    $sql = "INSERT INTO cliente (cliente_usuario, cliente_nome, cliente_valor_limite) VALUES (:usuario, :nome, :valor_limite)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':usuario', $usuario);
@@ -14,7 +14,7 @@ if($_POST){
     $stmt->bindValue(':valor_limite', str_replace(',','.',$valor_limite));
     $stmt->execute();
     echo "<br>Cadastrado com sucesso!";
-    echo "<br><a href='lista.php'>Lista de contas_pagars</a>";
+    echo "<br><a href='lista.php'>Lista de clientes</a>";
 } else {
     echo "ERRO! Informe os dados";
 }

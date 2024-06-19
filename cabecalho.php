@@ -26,8 +26,8 @@
 								<li><a href="/pcc/cadastro-clientes/lista.php" class="nav-link px-2 link-dark">Clientes</a></li>
 								<li><a href="/pcc/cadastro-metas/lista.php" class="nav-link px-2 link-dark">Metas</a></li>
 								<li><a href="/pcc/cadastro-historicos/lista.php" class="nav-link px-2 link-dark">Históricos</a></li>
-								<li><a href="/pcc/cadastro-contas-pagar/lista.php" class="nav-link px-2 link-dark">Contas a Pagar</a></li>
-								<li><a href="/pcc/cadastro-contas-receber/lista.php" class="nav-link px-2 link-dark">Contas a Receber</a></li>
+								<li><a href="/pcc/cadastro-contas-pagar/lista.php" class="nav-link px-2 link-dark">Pagamentos</a></li>
+								<li><a href="/pcc/cadastro-contas-receber/lista.php" class="nav-link px-2 link-dark">Recebimentos</a></li>
 							</ul>
 
 							<div class="col-md-3 text-end">

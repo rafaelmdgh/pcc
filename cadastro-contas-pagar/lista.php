@@ -1,7 +1,7 @@
 <?php
 include('../config/conexao_pdo.php');
 include(ROOT_PATH.'cabecalho.php');
-$stmt = $pdo->prepare("SELECT pagar_usuario, pagar_nr_lancamento, pagar_dt_vencimento, pagar_dt_emissao, pagar_codigo_fornecedor, pagar_codigo_historico, pagar_dt_baixa, fornecedor_nome, pagar_valor, pagar_observacao, historico_nome FROM contas_pagar inner join fornecedor on fornecedor_codigo = pagar_codigo_fornecedor inner join historico on historico_codigo = pagar_codigo_historico WHERE pagar_usuario = ".$_SESSION["usuario_codigo"].";");
+$stmt = $pdo->prepare("SELECT pagar_usuario, pagar_nr_lancamento, pagar_dt_vencimento, pagar_dt_emissao, pagar_codigo_fornecedor, pagar_codigo_historico, pagar_dt_baixa, fornecedor_nome, pagar_valor, pagar_observacao, historico_nome FROM contas_pagar inner join fornecedor on fornecedor_codigo = pagar_codigo_fornecedor and fornecedor_usuario = pagar_usuario inner join historico on historico_codigo = pagar_codigo_historico and historico_usuario = pagar_usuario WHERE pagar_usuario = ".$_SESSION["usuario_codigo"]."  ORDER BY pagar_nr_lancamento ASC;");
 
 $stmt->execute();
 
@@ -18,7 +18,7 @@ $contas_pagar = $stmt->fetchAll();
 </head>
 <body>
 <div class="container"> 
-    <h1>Lista de contas_pagars</h1>
+    <h1>Lista de Pagamentos</h1>
     
     
     <form action="baixar_registros.php" method="get">
