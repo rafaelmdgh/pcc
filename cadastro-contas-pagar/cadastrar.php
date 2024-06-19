@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="container">
-<h1>Contas a pagar</h1>
+<h1>Gravar Pagamento</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Número Lançamento</p>
