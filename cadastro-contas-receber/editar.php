@@ -30,7 +30,7 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresa Teste</title>
+    <title>Editar Recebimento</title>
 </head>
 <body>
 <div class="container">
