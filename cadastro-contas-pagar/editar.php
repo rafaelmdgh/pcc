@@ -19,6 +19,10 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $fornecedores = $stmt->fetchAll();
 
+$sql = "SELECT historico_usuario, historico_codigo, historico_nome from historico where historico_usuario = ".$_SESSION['usuario_codigo'].";";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $historicos = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +57,17 @@ $fornecedores = $stmt->fetchAll();
         <br>
         <p>Valor a Pagar</p>
         <p><input type="text" name="valor" id="valor" value="<?php echo $contas_pagar['pagar_valor'];?>" required></p>
+        <br>
+        <p>Histórico</p>
+        <p><select name="historico" id="historico" required>
+                <option value="" selected>Selecione</option>
+                <?php
+                    foreach ($historicos as $historico){
+                        echo "<option value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                    }
+                ?>
+            </select>
+        </p>
         <br>
         <p>Data de Vencimento</p>
         <p><input type="date" name="dt_vencimento" id="dt_vencimento" value="<?php echo $contas_pagar['pagar_dt_vencimento'];?>" required></p>

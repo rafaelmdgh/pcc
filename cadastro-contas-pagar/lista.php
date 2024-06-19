@@ -1,7 +1,7 @@
 <?php
 include('../config/conexao_pdo.php');
 include(ROOT_PATH.'cabecalho.php');
-$stmt = $pdo->prepare("SELECT pagar_usuario, pagar_nr_lancamento, pagar_dt_vencimento, pagar_dt_emissao, pagar_codigo_fornecedor, pagar_dt_baixa, fornecedor_nome, pagar_valor, pagar_observacao FROM contas_pagar inner join fornecedor on fornecedor_codigo = pagar_codigo_fornecedor WHERE pagar_usuario = ".$_SESSION["usuario_codigo"].";");
+$stmt = $pdo->prepare("SELECT pagar_usuario, pagar_nr_lancamento, pagar_dt_vencimento, pagar_dt_emissao, pagar_codigo_fornecedor, pagar_codigo_historico, pagar_dt_baixa, fornecedor_nome, pagar_valor, pagar_observacao, historico_nome FROM contas_pagar inner join fornecedor on fornecedor_codigo = pagar_codigo_fornecedor inner join historico on historico_codigo = pagar_codigo_historico WHERE pagar_usuario = ".$_SESSION["usuario_codigo"].";");
 
 $stmt->execute();
 
@@ -33,6 +33,7 @@ $contas_pagar = $stmt->fetchAll();
             <th>Data de Vencimento</th>
             <th>Fornecedor</th>
             <th>Valor</th>
+            <th>Histórico</th>
             <th>Observação</th>
             <th>Data de Emissão</th>
             <th>Data de Baixa</th>
@@ -50,6 +51,7 @@ $contas_pagar = $stmt->fetchAll();
             echo "<td>" . $pagar['pagar_dt_vencimento']."</td>";
             echo "<td>" . $pagar['fornecedor_nome']."</td>";
             echo "<td>R$" . str_replace('.',',',$pagar['pagar_valor'])."</td>";
+            echo "<td>" . $pagar['historico_nome']."</td>";
             echo "<td>" . $pagar['pagar_observacao']."</td>";
             echo "<td>" . $pagar['pagar_dt_emissao']."</td>";
             echo "<td>" . $pagar['pagar_dt_baixa']."</td>";
