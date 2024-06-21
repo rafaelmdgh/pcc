@@ -2,9 +2,25 @@
 include('../config/conexao_pdo.php');
 include(ROOT_PATH.'cabecalho.php');
 
+$limite = isset($_GET['limitador']) ? $_GET['limitador'] :10;
 
+// Obter página atual (se não existir, usar página 1)
+$paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 
-$stmt = $pdo->prepare("SELECT receber_usuario, receber_nr_lancamento, receber_dt_vencimento, receber_dt_emissao, receber_codigo_cliente, receber_codigo_historico, receber_dt_baixa, cliente_nome, receber_valor, receber_observacao, historico_nome FROM contas_receber inner join cliente on cliente_codigo = receber_codigo_cliente and cliente_usuario = receber_usuario inner join historico on historico_codigo = receber_codigo_historico and historico_usuario = receber_usuario WHERE receber_usuario = ".$_SESSION["usuario_codigo"]."  ORDER BY receber_nr_lancamento ASC;");
+// Calcular o offset (posição inicial do registro na página atual)
+$offset = ($paginaAtual - 1) * $limite;
+
+/*
+// Obter termo de pesquisa (se existir)
+$termoPesquisaNome = '';
+if (isset($_GET['nome'])) {
+    $termoPesquisaNome =  " AND nome LIKE '%" . $_GET['nome'] . "%'";
+}
+if (isset($_GET['cargo'])){
+    $termoPesquisaCargo =  " AND cargo LIKE '%".$_GET['cargo']."%'";
+}
+*/
+$stmt = $pdo->prepare("SELECT receber_usuario, receber_nr_lancamento, receber_dt_vencimento, receber_dt_emissao, receber_codigo_cliente, receber_codigo_historico, receber_dt_baixa, cliente_nome, receber_valor, receber_observacao, historico_nome FROM contas_receber inner join cliente on cliente_codigo = receber_codigo_cliente and cliente_usuario = receber_usuario inner join historico on historico_codigo = receber_codigo_historico and historico_usuario = receber_usuario WHERE receber_usuario = ".$_SESSION["usuario_codigo"]."  ORDER BY receber_nr_lancamento ASC LIMIT ".$limite." OFFSET ".$offset.";");
 
 $stmt->execute();
 
@@ -27,6 +43,7 @@ $contas_receber = $stmt->fetchAll();
     <form action="baixar_registros.php" method="get">
         <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
         <input class="btn btn-primary" type="submit" value="Baixar">
+        <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
     </form>   
     <div class="container">
         <div class="row">
@@ -36,14 +53,16 @@ $contas_receber = $stmt->fetchAll();
                 </div>
             </div>
             <div class="col-md-1">
-                <div class="input-group mb-3">
-                    <select class="form-select" name="limitador" id="limitador">
-                        <option selected value="<?php $limite=10;?>">10</option>
-                        <option value="<?php $limite=20;?>">20</option>
-                        <option value="<?php $limite=50;?>">50</option>
-                        <option value="<?php $limite=100;?>">100</option>
-                    </select>
-                </div>
+                <form action="" method="get">
+                    <div class="input-group mb-3">
+                        <select class="form-select" name="limitador" id="limitador" onchange="submitLimitador(this)" value="<?php $limite ?>">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </form>
             </div>
         </div>          
     </div>
@@ -83,59 +102,67 @@ $contas_receber = $stmt->fetchAll();
         ?>
     </table>
     <?php
-    echo "limite:".$limite;
     // Obter o total de registros
-    $sqlTotal = 'SELECT COUNT(*) receber_nr_lancamento FROM contas_receber WHERE receber_usuario = '.$_SESSION['usuario_codigo'].' LIMIT $limite OFFSET $offset ';
+    $sqlTotal = 'SELECT COUNT(*) total FROM contas_receber WHERE receber_usuario = '.$_SESSION['usuario_codigo'];
     $stmt = $pdo->prepare($sqlTotal);
-
+    
     $stmt->execute();
 
-    $funcionariosTotal = $stmt->fetchAll();
+    $lancamentosTotal = $stmt->fetchAll();
 
-    $totalRegistros = $funcionariosTotal[0]['total'];
+    $totalRegistros = $lancamentosTotal[0]['total'];
 
     // Calcular o total de páginas
     $totalPaginas = ceil($totalRegistros / $limite);
-
     // Exibir links de navegação (se houver mais de uma página)
     if ($totalPaginas > 1) {
         echo "<br>";
-        echo "<nav>";
+        echo '<nav aria-label="...">';
+        echo '<ul class="pagination">';
 
-        // Link para a primeira página
-        echo "<a href='?pagina=1'>Primeira</a>";
-
+        // Link para a página anterior (se houver)
+        if($paginaAtual-1 <= 0) {
+            echo '<li class="page-item disabled">';
+        }else{
+            echo '<li class="page-item">';
+        }
+        echo '<a class="page-link" tabindex="-1" href="?pagina='.($paginaAtual-1).'">Anterior</a>';
+        echo '</li>';
         // Links para páginas anteriores (se houver)
         for ($i = 1; $i < $paginaAtual; $i++) {
-            echo " | <a href='?pagina=$i'>$i</a>";
+            echo '<li class="page-item">';
+            echo '<a class="page-link" href="?pagina='.$i.'">'.$i.'</a>';
+            echo '</li>';
         }
 
         // Página atual (destacar)
-        echo " | <span class='pagina-atual'>$paginaAtual</span> | ";
+        echo  '<li class="page-item active">';
+        echo '<a class="page-link" href="?pagina='.$paginaAtual.'">';
+        echo '<span class="sr-only">'.$paginaAtual.'</span>';
+        echo '</a>';
+        echo '</li>';
 
         // Links para páginas seguintes (se houver)
         for ($i = $paginaAtual + 1; $i <= $totalPaginas; $i++) {
-            echo "<a href='?pagina=$i'>$i</a> | ";
+            echo '<li class="page-item">';
+            echo '<a class="page-link" href="?pagina='.$i.'">'.$i.'</a>';
+            echo '</li>';
         }
 
-        // Link para a última página
-        echo "<a href='?pagina=$totalPaginas'>Última</a>";
-
+        // Link para a próxima página (se houver)
+        if($paginaAtual+1 > $totalPaginas) {
+            echo '<li class="page-item disabled">';
+        }else{
+            echo '<li class="page-item">';
+        }
+        echo '<a class="page-link" href="?pagina='.($paginaAtual+1).'">Próxima</a>';
+        echo '</li>';
+        echo '</ul>';
         echo "</nav>";
     }
     ?>
     <script>
-        function salvarSelecao(valor, selecionado) {
-            registrosSelecionados = document.getElementById("registrosSelecionados");
-            if (selecionado == true) {
-                console.log(valor);
-                registrosSelecionados.value += valor +",";
-            }else{
-                if (registrosSelecionados.value.includes(valor)){
-                    registrosSelecionados.value = registrosSelecionados.value.replace(valor+",","");
-                }
-            }    
-        }
+        document.getElementById('limitador').value = "<?php echo $limite;?>";
     </script>
 </div>
 </body>

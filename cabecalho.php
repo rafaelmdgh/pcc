@@ -6,7 +6,7 @@
 	<?php
 		echo "<link rel='stylesheet' type='text/css' href='/pcc/css/bootstrap/bootstrap.min.css' />";
 		echo "<link rel='stylesheet' type='text/css' href='/pcc/css/estilo.css' />";
-		echo "<script type='text/javascript' src='/pcc/js/bootstrap/bootstrap.min.css'></script>";
+		echo "<script type='text/javascript' src='/pcc/js/bootstrap/bootstrap.min.js'></script>";
 		echo "<script type='text/javascript' src='/pcc/js/funcoes.js'></script>";
 	?>
 </head>
