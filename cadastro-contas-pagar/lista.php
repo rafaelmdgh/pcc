@@ -1,6 +1,6 @@
 <?php
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
-include(ROOT_PATH.'cabecalho.php');
 $stmt = $pdo->prepare("SELECT pagar_usuario, pagar_nr_lancamento, pagar_dt_vencimento, pagar_dt_emissao, pagar_codigo_fornecedor, pagar_dt_baixa, fornecedor_nome, pagar_valor, pagar_observacao FROM contas_pagar inner join fornecedor on fornecedor_codigo = pagar_codigo_fornecedor WHERE pagar_usuario = ".$_SESSION["usuario_codigo"].";");
 
 $stmt->execute();

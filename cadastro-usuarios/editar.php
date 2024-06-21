@@ -1,6 +1,6 @@
 <?php 
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
-include(ROOT_PATH.'cabecalho.php');
 
 $id = $_GET['id'];
 

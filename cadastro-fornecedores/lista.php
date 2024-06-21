@@ -1,6 +1,6 @@
 <?php
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
-include(ROOT_PATH.'cabecalho.php');
 $stmt = $pdo->prepare("SELECT * FROM fornecedor WHERE fornecedor_usuario = ".$_SESSION["usuario_codigo"].";");
 
 $stmt->execute();

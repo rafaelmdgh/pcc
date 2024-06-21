@@ -14,3 +14,17 @@ function trocarCor(currentUrl) {
         }
     }
 }
+
+function alertaSucesso(mensagem, redirecionamento){
+    alert(mensagem);
+    if(redirecionamento){
+        window.location.href = redirecionamento;
+    }
+}
+
+function alertaErro(mensagem, voltarPagina){
+    alert(mensagem);
+    if(voltarPagina == true){
+        window.history.back();
+    }
+}

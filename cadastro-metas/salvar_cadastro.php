@@ -1,5 +1,7 @@
 <?php 
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
+
 
 if($_POST){
     $usuario = $_SESSION['usuario_codigo'];
@@ -44,8 +46,10 @@ if($_POST){
                     $stmt->bindValue(':usuario', $metaUsuario);
                     $stmt->bindValue(':codigo', $metaCodigo);
                     $stmt->execute();
-                    echo "<br>Cadastrado com sucesso!";
-                    echo "<br><a href='lista.php'>Lista de metas</a>";
+                    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
+                    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
                 }
             }
         }
@@ -53,7 +57,7 @@ if($_POST){
         echo "imagem tá setada";
     }
 } else {
-    echo "ERRO! Informe os dados";
+    echo '<script>alertaErro("Erro! Informe os dados.",true)</script>';
 }
 
 ?>
