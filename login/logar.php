@@ -1,5 +1,6 @@
 <?php
     include ('../config/conexao_pdo.php');
+    include ('../cabecalho.php');
     
     if(isset($_POST)){
         $email = $_POST['email'];
@@ -24,14 +25,12 @@
                 header('location:interno.php');
                 
             } else {
-                echo "<div class='erro'>Usuario não encontrado</div>";
-                exit;
+                echo '<script>alertaErro("Usuário não encontrado!",true)</script>';
             }
         }else{
-            echo "<div class='erro'>Senha incorreta</div>";
-            exit;
+            echo '<script>alertaErro("Usuário/Senha incorreta!",true)</script>';
         }
     } else {
-        echo "Envie as informações";
+        echo '<script>alertaErro("Envie as informações",true)</script>';
     }
 ?>

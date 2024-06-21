@@ -1,5 +1,7 @@
 <?php 
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
+
 
 if($_POST){
   
@@ -27,11 +29,12 @@ if($_POST){
         $stmt->bindValue(':senha', $senha);
         $stmt->bindValue(':celular', $celular);
         $stmt->execute();
-        echo "<br>Cadastrado com sucesso!";
+        echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
     }   
 
 } else {
-    echo "ERRO! Informe os dados";
+    echo '<script>alertaErro("Erro! Informe os dados.",true)</script>';
 }
 
 ?>

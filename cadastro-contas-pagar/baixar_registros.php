@@ -1,5 +1,7 @@
 <?php 
-	include('../config/conexao_pdo.php');
+	include('../verifica-sessao.php');
+include('../config/conexao_pdo.php');
+
 	try {
 		if ($_GET['registrosSelecionados'] != ''){
 			$registrosSelecionados = explode(',',$_GET['registrosSelecionados']);
@@ -13,9 +15,9 @@
 				$stmt->bindValue(':dt_baixa', $dataAtual);
 				$stmt->execute();
 			}
-			echo "Registro(s) baixado(s) com sucesso";
+			echo '<script>alertaSucesso("Registro(s) baixado(s) com sucesso","lista.php")</script>';
 		}else{
-			echo "Nenhum registro selecionado";
+			echo '<script>alertaErro("Nenhum registro selecionado",true)</script>';
 		}
 	}catch(PDOException $e){
 		echo "Erro: ".$e->getMessage();

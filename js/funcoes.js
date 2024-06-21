@@ -30,3 +30,17 @@ function salvarSelecao(valor, selecionado) {
 function submitLimitador(elemento){
     elemento.form.submit();
 }
+
+function alertaSucesso(mensagem, redirecionamento){
+    alert(mensagem);
+    if(redirecionamento){
+        window.location.href = redirecionamento;
+    }
+}
+
+function alertaErro(mensagem, voltarPagina){
+    alert(mensagem);
+    if(voltarPagina == true){
+        window.history.back();
+    }
+}
