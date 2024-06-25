@@ -2,9 +2,6 @@
 include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
 
-
-
-
 if($_POST){
     $usuario = $_SESSION['usuario_codigo'];
     $codigo = $_POST["codigo"];

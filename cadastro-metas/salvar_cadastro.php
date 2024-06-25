@@ -40,6 +40,7 @@ if($_POST){
                 $nome_imagem = 'usuario'.$metaUsuario.'_meta'.$metaCodigo.'_'.uniqid().$extensao;
                 $caminho_arquivo = $diretorio . $nome_imagem;
                 if(move_uploaded_file($_FILES['imagem']['tmp_name'], $caminho_arquivo)){
+                    redimensionamento($nome_imagem, $diretorio, $extensao);
                     $sql = 'UPDATE meta SET meta_imagem = :nova_imagem WHERE meta_usuario = :usuario AND meta_codigo = :codigo';
                     $stmt = $pdo->prepare($sql);
                     $stmt->bindValue(':nova_imagem', $nome_imagem);
@@ -58,6 +59,46 @@ if($_POST){
     }
 } else {
     echo '<script>alertaErro("Erro! Informe os dados.",true)</script>';
+}
+function redimensionamento($foto,$diretorio,$extensao){
+//fazer o redimensionamento da imagem
+    // Carregar a imagem original
+    switch ($extensao){
+        case '.jpeg':
+            $imagem = imagecreatefromjpeg($diretorio.$foto);
+            echo 'imagem jpeg';
+        break;
+        case '.jpg':
+            $imagem = imagecreatefromjpeg($diretorio.$foto);
+            echo 'imagem jpg';
+        break;
+        case '.png':
+            $imagem = imagecreatefrompng($diretorio.$foto);
+            echo 'imagem png';
+        break;
+        case '.gif':
+            $imagem = imagecreatefromgif($diretorio.$foto);
+            echo 'imagem gif';
+        break;
+    }
+
+    // Definir as novas dimensões
+    $novaLargura = 500;
+    $novaAltura = 500;
+
+    // Criar uma nova imagem redimensionada
+    $novaImagem = imagecreatetruecolor($novaLargura, $novaAltura);
+
+    // Redimensionar a imagem original para a nova imagem
+    imagecopyresampled($novaImagem, $imagem, 0, 0, 0, 0, $novaLargura, $novaAltura, imagesx($imagem), imagesy($imagem));
+
+    // Salvar a nova imagem em um arquivo
+    imagejpeg($novaImagem, $diretorio.$foto);
+
+    // Liberar a memória
+    imagedestroy($novaImagem);
+    imagedestroy($imagem);
+
 }
 
 ?>
