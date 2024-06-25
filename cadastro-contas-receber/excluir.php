@@ -11,8 +11,6 @@ $stmt->bindValue(':codigo', $codigo);
 $stmt->bindValue(':usuario', $usuario);
 $stmt->execute();
 
-
-echo "<br>Excluido com sucesso!";
-echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+echo '<script>alertaSucesso("Excluído com sucesso!","lista.php")</script>';
 
 ?>

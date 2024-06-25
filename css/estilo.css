@@ -27,5 +27,9 @@ table input[type="checkbox"]{
 }
 .card-meta{
 	display: flex;
-	background-color: red;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	align-content: center;
+	margin: 10px !important;
 }
