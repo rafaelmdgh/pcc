@@ -2,7 +2,7 @@
 	
 	include ('verifica-sessao.php');
 	include('./config/conexao_pdo.php');
-	$stmt = $pdo->prepare("SELECT * FROM meta WHERE meta_usuario = ".$_SESSION["usuario_codigo"]."  ORDER BY meta_valor ASC;");
+	$stmt = $pdo->prepare("SELECT * FROM meta WHERE meta_usuario = ".$_SESSION["usuario_codigo"]." AND meta_nome not like '%[Concluída]' ORDER BY meta_valor ASC;");
 	$stmt->execute();
 	$metas = $stmt->fetchAll();
 
@@ -52,9 +52,26 @@
 					echo 'R$'.$valorNaConta.'/R$'.$meta['meta_valor'];
 				}
 				echo '</center>	
+				</div>
+					<center>
+					<form method="get" action="">
+						<input type="hidden" name="metaConcluida'.$meta['meta_codigo'].'" id="metaConcluida'.$meta['meta_codigo'].'">
+						<input width="100%" type="submit" class="btn btn-primary" onclick="concluirMeta('.$meta['meta_codigo'].')" value="Concluir">
+					</form>
+					</center>
 					</div>
-					</div>
+					<script>
+						function concluirMeta(codigo){
+							document.getElementById("metaConcluida"+codigo).value = codigo;
+						}
+					</script>
 				';
+				if(isset($_GET)){
+					if(isset($_GET['metaConcluida'.$meta['meta_codigo']])){
+                        $stmt = $pdo->prepare("UPDATE meta SET meta_nome = CONCAT(meta_nome, ' [Concluída]') WHERE meta_codigo = ".$meta['meta_codigo']." AND meta_usuario = ".$_SESSION['usuario_codigo']." ;");
+                        $stmt->execute();
+                    }
+				}
 			}
 		?>
 		</div>
