@@ -11,21 +11,19 @@
 </head>
 <body>
 <div class="container">
-  <center>
     <div class="login">
       <section id="" class=".container-md">
         <h1>Login</h1><br>
-        <form action="logar.php" method="post">
+        <form class="form-group" action="logar.php" method="post">
           <label for="email">Usuário/Email:</label><br>
-          <input type="text" name="email" id="usuario"><br><br>
+          <input class="form-control" type="text" name="email" id="usuario"><br><br>
           <label for="senha">Senha:</label><br>
-          <input type="password" name="senha" id="senha"><br><br>
-          <input type="submit" value="Entrar"><br>
+          <input class="form-control" type="password" name="senha" id="senha"><br><br>
+          <input class="form-control btn btn-primary" type="submit" value="Entrar"><br>
           <p>Não possui conta?<a href="../cadastro-usuarios/cadastrar.php"> Cadastre-se. </a></p>
         </form>
       </section>
     </div>
-  </center>
 </div>
 </body>
 </html>
