@@ -12,9 +12,9 @@
 <body>
 <div class="container">
   <center>
-    
-      <h1>Login</h1><br>
+    <div class="login">
       <section id="" class=".container-md">
+        <h1>Login</h1><br>
         <form action="logar.php" method="post">
           <label for="email">Usuário/Email:</label><br>
           <input type="text" name="email" id="usuario"><br><br>
@@ -24,7 +24,7 @@
           <p>Não possui conta?<a href="../cadastro-usuarios/cadastrar.php"> Cadastre-se. </a></p>
         </form>
       </section>
-    </
+    </div>
   </center>
 </div>
 </body>

@@ -33,3 +33,13 @@ table input[type="checkbox"]{
 	align-content: center;
 	margin: 10px !important;
 }
+.login{
+	border: 2px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	width: 30%;
+
+
+}
