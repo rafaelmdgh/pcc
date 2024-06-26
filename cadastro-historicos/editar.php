@@ -28,10 +28,10 @@ $historico = $stmt->fetch();
     <form action="editar_cadastro.php" method="post">
         <input type="hidden" name="codigo" id="codigo" value="<?php echo $historico['historico_codigo']; ?>">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" value="<?php echo $historico['historico_nome'] ?>" ></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $historico['historico_nome'] ?>" ></p>
         <br>
         <p>Valor Limite</p>
-        <p><input type="text" name="valor_limite" id="valor_limite" value="<?php echo $historico['historico_valor_limite'] ?>" ></p>
+        <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" value="<?php echo $historico['historico_valor_limite'] ?>" ></p>
         <br>
         <input type="submit" value="Salvar">
     </form>

@@ -25,18 +25,27 @@
 	</head>
 	<body>
 	<div class="container">
-
-		<h1>Olá, <?php echo $_SESSION['usuario_nome'] ?></h1> 
-		<p>
-			Progressos das metas:
-		</p>
 		<div class="row">
+			<div class="col-md-6">
+				<h1>Olá, <?php echo $_SESSION['usuario_nome'] ?></h1> 
+			</div>
+			<div class="col-md-6">
+				<h2 style="text-align: right;">Seu total: R$<?php echo $valorNaConta ?></h2>
+
+			</div>
+		</div>
+		<center>
+			<h1>
+				Progressos das metas:
+			</h1>
+			</center>
+		<div class="row row-card">
 		<?php 
 			foreach ($metas as $meta){
 				$porcentagem = ($valorNaConta / $meta['meta_valor']) * 100;
 				echo '
-					<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/pcc/cadastro-metas/imagens/'.$meta['meta_imagem'].'" alt="Imagem de capa do card">
+					<div class="card card-meta" style="width: 18rem;">
+					<img class="card-img-top img-meta" src="/pcc/cadastro-metas/imagens/'.$meta['meta_imagem'].'" alt="Imagem de capa do card">
 					<div class="card-body">
 						<center>
 						<p class="card-text">'.$meta['meta_nome'].'</p>

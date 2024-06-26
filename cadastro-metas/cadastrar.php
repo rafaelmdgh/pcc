@@ -14,13 +14,13 @@
     <br>
     <form action="salvar_cadastro.php" method="post" enctype="multipart/form-data">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" required></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
         <p>Valor</p>
-        <p><input type="text" name="valor" id="valor"></p>
+        <p><input class="form-control" type="text" name="valor" id="valor"></p>
         <br>
         <p>Imagem</p>
-        <p><input type="file" name="imagem" id="imagem" accept="image/png, image/jpeg, image/jpg, image/gif" ></p>
+        <p><input class="form-control" type="file" name="imagem" id="imagem" accept="image/png, image/jpeg, image/jpg, image/gif" ></p>
         <br>
         <input type="submit" value="Salvar">
     </form>

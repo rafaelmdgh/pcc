@@ -28,13 +28,13 @@ $usuario = $stmt->fetch();
     <form action="editar_cadastro.php" method="post">
         <input type="hidden" name="id" id="id" value="<?php echo $usuario['id']; ?>">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" value="<?php echo $usuario['nome'] ?>" ></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $usuario['nome'] ?>" ></p>
         <br>
         <p>E-mail</p>
-        <p><input type="text" name="email" id="email" value="<?php echo $usuario['email'] ?>" ></p>
+        <p><input class="form-control" type="text" name="email" id="email" value="<?php echo $usuario['email'] ?>" ></p>
         <br>
         <p>Senha</p>
-        <p><input type="text" name="senha" id="senha" value="<?php echo $usuario['senha'] ?>" ></p>
+        <p><input class="form-control" type="text" name="senha" id="senha" value="<?php echo $usuario['senha'] ?>" ></p>
         <br>
         <input type="submit" value="Salvar">
     </form>

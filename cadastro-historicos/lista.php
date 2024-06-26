@@ -74,7 +74,7 @@ $historicos = $stmt->fetchAll();
             echo "<td>" . $historico['historico_nome']."</td>";
             echo "<td>R$" . str_replace('.',',',$historico['historico_valor_limite'])."</td>";
             echo "<td>" . $historico['tipo_nome']."</td>";
-            echo "<td><a href='editar.php?codigo=".$historico['historico_codigo']."'>Editar</a> - <a href='excluir.php?codigo=".$historico['historico_codigo']."'>Excluir</a> </td>";
+            echo '<td><a href="editar.php?codigo='.$historico['historico_codigo'].'">Editar</a> - <a href="excluir.php?codigo='.$historico['historico_codigo'].'">Excluir</a> </td>';
             echo "</tr>";
         }
         

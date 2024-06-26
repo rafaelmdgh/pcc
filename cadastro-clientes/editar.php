@@ -26,12 +26,12 @@ $cliente = $stmt->fetch();
 <h1>Editar cliente</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
-        <input type="hidden" name="codigo" id="codigo" value="<?php echo $cliente['cliente_codigo']; ?>">
+        <input class="form-control" type="hidden" name="codigo" id="codigo" value="<?php echo $cliente['cliente_codigo']; ?>">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" value="<?php echo $cliente['cliente_nome'] ?>" ></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $cliente['cliente_nome'] ?>" ></p>
         <br>
         <p>Valor Limite</p>
-        <p><input type="text" name="valor_limite" id="valor_limite" value="<?php echo $cliente['cliente_valor_limite'] ?>" ></p>
+        <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" value="<?php echo $cliente['cliente_valor_limite'] ?>" ></p>
         <br>
         <input type="submit" value="Salvar">
     </form>

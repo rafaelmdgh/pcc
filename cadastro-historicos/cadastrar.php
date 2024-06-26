@@ -19,13 +19,13 @@
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" required></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
         <p>Valor Limite</p>
-        <p><input type="text" name="valor_limite" id="valor_limite" ></p>
+        <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" ></p>
         <br>
         <p>Tipo</p>
-        <p><select name="tipo" id="tipo" required>
+        <p><select class="form-select" name="tipo" id="tipo" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($tipos as $tipo){

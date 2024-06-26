@@ -15,19 +15,19 @@
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" required></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
         <p>E-mail</p>
-        <p><input type="email" name="email" id="email" required></p>
+        <p><input class="form-control" type="email" name="email" id="email" required></p>
         <br>
         <p>Usuário</p>
-        <p><input type="text" name="username" id="username" required></p>
+        <p><input class="form-control" type="text" name="username" id="username" required></p>
         <br>
         <p>Celular</p>
-        <p><input type="number" name="celular" id="celular" ></p>
+        <p><input class="form-control" type="number" name="celular" id="celular" ></p>
         <br>
         <p>Senha</p>
-        <p><input type="password" name="senha" id="senha" required></p>
+        <p><input class="form-control" type="password" name="senha" id="senha" required></p>
         <br>
         <input type="submit" value="Salvar">
     </form>

@@ -28,10 +28,10 @@ $meta = $stmt->fetch();
     <form action="editar_cadastro.php" method="post">
         <input type="hidden" name="codigo" id="codigo" value="<?php echo $meta['meta_codigo']; ?>">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" value="<?php echo $meta['meta_nome'] ?>" ></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $meta['meta_nome'] ?>" ></p>
         <br>
         <p>Valor Limite</p>
-        <p><input type="text" name="valor" id="valor" value="<?php echo $meta['meta_valor'] ?>" ></p>
+        <p><input class="form-control" type="text" name="valor" id="valor" value="<?php echo $meta['meta_valor'] ?>" ></p>
         <br>
         <input type="submit" value="Salvar">
     </form>

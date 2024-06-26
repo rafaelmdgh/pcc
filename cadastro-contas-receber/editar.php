@@ -38,10 +38,10 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
     <br>
     <form action="editar_cadastro.php" method="post">
     <p>Número Lançamento</p>
-        <p><input type="number" name="nr_lancamento" id="nr_lancamento" value="<?php echo $contas_receber['receber_nr_lancamento'];?>" readonly></p>
+        <p><input class="form-control" type="number" name="nr_lancamento" id="nr_lancamento" value="<?php echo $contas_receber['receber_nr_lancamento'];?>" readonly></p>
         <br>
         <p>cliente</p>
-        <p><select name="cliente" id="cliente" required value="<?php echo $contas_receber['receber_codigo_cliente'];?>">
+        <p><select class="form-select" name="cliente" id="cliente" required value="<?php echo $contas_receber['receber_codigo_cliente'];?>">
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($clientees as $cliente){
@@ -56,10 +56,10 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
         </p>
         <br>
         <p>Valor a receber</p>
-        <p><input type="text" name="valor" id="valor" value="<?php echo $contas_receber['receber_valor'];?>" required></p>
+        <p><input class="form-control" type="text" name="valor" id="valor" value="<?php echo $contas_receber['receber_valor'];?>" required></p>
         <br>
         <p>Histórico</p>
-        <p><select name="historico" id="historico" required>
+        <p><select class="form-select" name="historico" id="historico" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($historicos as $historico){
@@ -70,10 +70,10 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
         </p>
         <br>
         <p>Data de Vencimento</p>
-        <p><input type="date" name="dt_vencimento" id="dt_vencimento" value="<?php echo $contas_receber['receber_dt_vencimento'];?>" required></p>
+        <p><input class="form-control" type="date" name="dt_vencimento" id="dt_vencimento" value="<?php echo $contas_receber['receber_dt_vencimento'];?>" required></p>
         <br>
         <p>Observação</p>
-        <p><textarea name="observacao" id="observacao"><?php echo $contas_receber['receber_observacao'];?></textarea></p>
+        <p><textarea class="form-control" name="observacao" id="observacao"><?php echo $contas_receber['receber_observacao'];?></textarea></p>
         <input type="submit" value="Salvar">
     </form>
 </div>
