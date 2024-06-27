@@ -64,7 +64,7 @@
         <br>
         <p>Observação</p>
         <p><textarea class="form-control" name="observacao" id="observacao"></textarea></p>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

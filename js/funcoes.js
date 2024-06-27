@@ -48,3 +48,11 @@ function alertaErro(mensagem, voltarPagina){
 function confirma(mensagem){
     return confirm(mensagem);
 }
+
+function ajustarData(data){
+    if (data != '0000-00-00'){
+        return data.split("-").reverse().join("/");
+    }else{
+        return "";
+    }
+}

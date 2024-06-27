@@ -74,7 +74,7 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
         <br>
         <p>Observação</p>
         <p><textarea class="form-control" name="observacao" id="observacao"><?php echo $contas_receber['receber_observacao'];?></textarea></p>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

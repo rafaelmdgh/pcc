@@ -10,10 +10,11 @@
     <title>Cadastro de Usuário</title>
 </head>
 <body>
-<div class="container">
+<div class="container personalizado">
+    <div class="caixa-cadastro">
+    <form action="salvar_cadastro.php" method="post">
 <h1>Cadastro de usuário</h1>
     <br>
-    <form action="salvar_cadastro.php" method="post">
         <p>Nome</p>
         <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
@@ -29,8 +30,9 @@
         <p>Senha</p>
         <p><input class="form-control" type="password" name="senha" id="senha" required></p>
         <br>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
+</div>
 </div>
 </body>
 </html>

@@ -33,7 +33,7 @@ $meta = $stmt->fetch();
         <p>Valor Limite</p>
         <p><input class="form-control" type="text" name="valor" id="valor" value="<?php echo $meta['meta_valor'] ?>" ></p>
         <br>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

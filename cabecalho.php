@@ -10,7 +10,7 @@
 		echo "<script type='text/javascript' src='/pcc/js/funcoes.js'></script>";
 	?>
 </head>
-<body onload="trocarCor(window.location.href)">
+<body onload="trocarCor(window.location.href)" style="background-color:white !important;">
   </div>
 		<?php
 			if (isset($_SESSION['usuario_codigo'])) {
@@ -19,7 +19,7 @@
 							<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 							<a href="/pcc/index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 								<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-									<strong style="font-family: Brush Script MT, cursive; font-size: 50px">GoalPlan</strong>
+									<strong style="font-family: Brush Script MT, cursive; font-size: 50px">GoalsPlan</strong>
 								</a>
 
 							<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">

@@ -49,11 +49,32 @@ table input[type="checkbox"]{
 	border-radius: 15px !important;
 	margin: 10px !important;
 }
-.login{
-	border: 2px solid black;
+.caixa-cadastro{
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	width: 30%;
-	position: absolute;
+	margin: 70px;
+	padding: 60px 20px;
+	width: 40%;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px 10px #cbc6c6;
+	background-color: white;
+}
+.personalizado{
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+.form-control{
+	box-shadow: 5px 5px 5px #cbc6c6;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	/* background-image: url('https://files.sunoresearch.com.br/p/uploads/2017/12/financas-pessoais.jpg.jpg'); */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }

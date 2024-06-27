@@ -10,10 +10,10 @@
   <title>Login</title>
 </head>
 <body>
-<div class="container">
-    <div class="login">
+<div class="container personalizado">
+    <div class="caixa-cadastro">
       <section id="" class=".container-md">
-        <h1>Login</h1><br>
+        <h1><strong style="font-family: Brush Script MT, cursive; font-size: 70px">GoalsPlan</strong></h1><br>
         <form class="form-group" action="logar.php" method="post">
           <label for="email">Usuário/Email:</label><br>
           <input class="form-control" type="text" name="email" id="usuario"><br><br>

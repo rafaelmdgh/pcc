@@ -19,7 +19,7 @@
         <p>Valor Limite</p>
         <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" ></p>
         <br>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

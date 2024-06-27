@@ -9,7 +9,8 @@
     <title>Cadastro de Clientes</title>
 </head>
 <body>
-<div class="container">
+<div class="container personalizado">
+    <div class="caixa-cadastro">
 <h1>Cadastro de clientes</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
@@ -19,8 +20,9 @@
         <p>Valor Limite</p>
         <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" ></p>
         <br>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
+    </div>
 </div>
 </body>
 </html>

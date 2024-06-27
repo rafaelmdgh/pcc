@@ -21,7 +21,7 @@ if($_POST){
     if($usuario['usuario_email'] == $email || $usuario['usuario_username'] == $username){
         echo "ERRO! Usuário já cadastrado";
     } else {
-        $sql = "INSERT INTO usuario (usuario_email, usuario_senha, usuario_nome, usuario_username, usuario_celular) VALUES (:email, :senha, :nome, :username, :celular)";
+        $sql = "INSERT INTO usuario (usuario_email, usuario_senha, usuario_nome, usuario_username, usuario_celular) VALUES (:email, SHA2(:senha, 256), :nome, :username, :celular)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':nome', $nome);
         $stmt->bindValue(':username', $username);

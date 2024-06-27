@@ -38,11 +38,7 @@ $contas_pagar = $stmt->fetchAll();
 <div class="container"> 
     <h1>Lista de Pagamentos</h1>
     
-    
-    <form action="baixar_registros.php" method="get">
-        <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
-        <input class="btn btn-primary" type="submit" value="Baixar">
-    </form>   
+     
     <div class="container">
         <div class="row">
             <div class="col-md-11">
@@ -65,8 +61,13 @@ $contas_pagar = $stmt->fetchAll();
         </div>          
     </div>
     <table border=1>
-<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
-        <tr>
+    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+    
+    <form action="baixar_registros.php" method="get">
+        <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
+        <input style="margin-left:10px;" class="btn btn-primary" type="submit" value="Baixar">
+    </form>  
+    <tr>
             <th>Seleção</th>
             <th>Número Lançamento</th>
             <th>Data de Vencimento</th>
@@ -87,13 +88,13 @@ $contas_pagar = $stmt->fetchAll();
             }
             echo "</td>";    
             echo "<td>" . $pagar['pagar_nr_lancamento']."</td>";
-            echo "<td>" . $pagar['pagar_dt_vencimento']."</td>";
+            echo "<td><script>document.write(ajustarData('" . $pagar['pagar_dt_vencimento']."'))</script></td>";
             echo "<td>" . $pagar['fornecedor_nome']."</td>";
             echo "<td>R$" . str_replace('.',',',$pagar['pagar_valor'])."</td>";
             echo "<td>" . $pagar['historico_nome']."</td>";
             echo "<td>" . $pagar['pagar_observacao']."</td>";
-            echo "<td>" . $pagar['pagar_dt_emissao']."</td>";
-            echo "<td>" . $pagar['pagar_dt_baixa']."</td>";
+            echo "<td><script>document.write(ajustarData('" . $pagar['pagar_dt_emissao']."'))</script></td>";
+            echo "<td><script>document.write(ajustarData('" . $pagar['pagar_dt_baixa']."'))</script></td>";
             echo "<td><a href='editar.php?codigo=".$pagar['pagar_nr_lancamento']."'>Editar</a> - <a href='excluir.php?codigo=".$pagar['pagar_nr_lancamento']."'>Excluir</a> </td>";
             echo "</tr>";
         }

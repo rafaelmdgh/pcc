@@ -30,13 +30,13 @@
 				<h1>Olá, <?php echo $_SESSION['usuario_nome'] ?></h1> 
 			</div>
 			<div class="col-md-6">
-				<h2 style="text-align: right;">Seu total: R$<?php echo $valorNaConta ?></h2>
+				<h2 style="text-align: right;">Saldo: R$<?php echo $valorNaConta ?></h2>
 
 			</div>
 		</div>
 		<center>
 			<h1>
-				Progressos das metas:
+				Progresso das metas:
 			</h1>
 			</center>
 		<div class="row row-card">
@@ -49,7 +49,7 @@
 					<div class="card-body">
 						<center>
 						<p class="card-text">'.$meta['meta_nome'].'</p>
-						<p class="card-text">'.$meta['meta_valor'].'</p>
+						<p class="card-text">Valor: R$'.$meta['meta_valor'].'</p>
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" style="width: '.$porcentagem.'%;" aria-valuenow="'.$porcentagem.'" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>

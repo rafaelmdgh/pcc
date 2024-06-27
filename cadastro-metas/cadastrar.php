@@ -22,7 +22,7 @@
         <p>Imagem</p>
         <p><input class="form-control" type="file" name="imagem" id="imagem" accept="image/png, image/jpeg, image/jpg, image/gif" ></p>
         <br>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

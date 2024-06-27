@@ -36,7 +36,7 @@ $usuario = $stmt->fetch();
         <p>Senha</p>
         <p><input class="form-control" type="text" name="senha" id="senha" value="<?php echo $usuario['senha'] ?>" ></p>
         <br>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>
