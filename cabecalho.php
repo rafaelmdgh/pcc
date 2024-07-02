@@ -29,6 +29,7 @@
 								<li><a href="/pcc/cadastro-historicos/lista.php" class="nav-link px-2 link-dark">Históricos</a></li>
 								<li><a href="/pcc/cadastro-contas-pagar/lista.php" class="nav-link px-2 link-dark">Pagamentos</a></li>
 								<li><a href="/pcc/cadastro-contas-receber/lista.php" class="nav-link px-2 link-dark">Recebimentos</a></li>
+								<li><input type="button" class="btn btn-primary" onclick="location.href=\'/pcc/login/sair.php\'" value="Sair" /></li>
 							</ul>
 
 							<div class="col-md-3 text-end">

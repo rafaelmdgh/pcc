@@ -14,7 +14,7 @@
 <h1>Cadastro de clientes</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
-        <p>Nome</p>
+        <label for="nome">Nome</label>
         <p><input class="form-control" type="text" name="nome" id="nome" ></p>
         <br>
         <p>Valor Limite</p>
