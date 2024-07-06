@@ -59,6 +59,15 @@ table input[type="checkbox"]{
 	box-shadow: 5px 5px 5px 10px #cbc6c6;
 	background-color: white;
 }
+.cabecalho{
+	display:flex;
+    padding: 30px 20px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 10px #cbc6c6;
+    background-color: white;
+}
+
 .personalizado{
 	display: flex;
 	justify-content: center;
