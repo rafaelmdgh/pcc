@@ -22,7 +22,7 @@ $fornecedor = $stmt->fetch();
     <title>Editar Fornecedor</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Editar fornecedor</h1>
     <br>
     <form action="editar_cadastro.php" method="post">

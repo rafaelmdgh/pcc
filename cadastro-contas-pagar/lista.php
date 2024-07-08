@@ -35,7 +35,7 @@ $contas_pagar = $stmt->fetchAll();
     <title>Pagamentos</title>
 </head>
 <body>
-<div class="container"> 
+<div class="container caixa-home"> 
     <h1>Lista de Pagamentos</h1>
     
      

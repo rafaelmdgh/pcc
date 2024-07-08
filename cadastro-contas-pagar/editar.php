@@ -33,7 +33,7 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
     <title>Editar Pagamento</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Editar Conta a Pagar</h1>
     <br>
     <form action="editar_cadastro.php" method="post">

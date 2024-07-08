@@ -36,7 +36,7 @@ $contas_receber = $stmt->fetchAll();
     <title>Recebimentos</title>
 </head>
 <body>
-<div class="container"> 
+<div class="container caixa-home"> 
     <h1>Lista de Recebimentos</h1>
     
     

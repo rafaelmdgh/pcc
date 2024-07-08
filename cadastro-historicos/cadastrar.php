@@ -14,7 +14,7 @@
     <title>Cadastro de Históricos</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Cadastro de Históricos</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">

@@ -9,7 +9,7 @@
     <title>Cadastro de Fornecedores</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Cadastro de Fornecedores</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">

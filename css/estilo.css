@@ -35,6 +35,11 @@ table input[type="checkbox"]{
 	margin-bottom: 50px !important;
 	border-radius: 18px !important;
 	padding-bottom: 10px !important;
+	box-shadow: 5px 5px 5px 5px #000;
+}
+.card-text, .card-titulo{
+	font-size: 22px !important;
+	font-weight: bold;
 }
 .row-card{
 	display: flex;
@@ -48,24 +53,37 @@ table input[type="checkbox"]{
 	border: 3px solid black !important;
 	border-radius: 15px !important;
 	margin: 10px !important;
+	justify-content: center;
 }
-.caixa-cadastro{
+.caixa-login{
 	display: flex;
 	justify-content: center;
 	margin: 70px;
 	padding: 60px 20px;
 	width: 40%;
 	border-radius: 15px;
-	box-shadow: 5px 5px 5px 10px #cbc6c6;
+	box-shadow: 10px 10px 5px 2px #cbc6c6;
 	background-color: white;
 }
 .cabecalho{
-	display:flex;
-    padding: 30px 20px;
+	display:grid;
+	justify-content: space-around;
+    padding: 15px 10px;
     width: 100%;
     border-radius: 15px;
-    box-shadow: 5px 5px 5px 10px #cbc6c6;
+    box-shadow: 5px 5px 5px 3px #cbc6c6;
     background-color: white;
+	font-size: 18px !important;
+}
+.cabecalho ul{
+	align-items: center !important;
+}
+.cabecalho li{
+	margin: 0 1em;
+}
+.cabecalho a{
+	text-decoration: none;
+    color: black;
 }
 
 .personalizado{
@@ -84,6 +102,20 @@ body{
 	height: 100%;
 	background-image: url('https://files.sunoresearch.com.br/p/uploads/2017/12/financas-pessoais.jpg.jpg');
 	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+}
+
+.caixa-home{
+	display:grid;
+	background-color: #FFFFFF;
+	border-radius: 40px;
+	padding: 20px;
+	margin-bottom: 20px;
+    box-shadow: 10px 10px 5px 3px #b4b3b3;
+}
+
+h1{
+	font-size: 35px !important;
+}
+h2{
+	font-size: 30px !important;
 }

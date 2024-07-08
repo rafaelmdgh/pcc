@@ -35,7 +35,7 @@ $historicos = $stmt->fetchAll();
     <title>Históricos</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
     <h1>Lista de Históricos</h1>
     <div class="container">
         <div class="row">

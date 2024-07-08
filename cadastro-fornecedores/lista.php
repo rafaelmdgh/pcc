@@ -35,7 +35,7 @@ $fornecedores = $stmt->fetchAll();
     <title>Fornecedores</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
     <h1>Lista de Fornecedores</h1>
     <div class="container">
         <div class="row">

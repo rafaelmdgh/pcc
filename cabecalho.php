@@ -18,7 +18,7 @@
 						<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-4 mb-4 border-bottom">
 							<div class="cabecalho">
 							<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-								<li><a href="/pcc/index.php"><strong style="font-family: Brush Script MT, cursive; font-size: 50px">GoalsPlan</strong></a></li>
+								<li><a href="/pcc/index.php"><strong style="font-family: Brush Script MT, cursive; font-size: 40px">GoalsPlan</strong></a><br></li>
 								<li><a href="/pcc/cadastro-fornecedores/lista.php" class="nav-link px-2 link-dark">Fornecedores</a></li>
 								<li><a href="/pcc/cadastro-clientes/lista.php" class="nav-link px-2 link-dark">Clientes</a></li>
 								<li><a href="/pcc/cadastro-metas/lista.php" class="nav-link px-2 link-dark">Metas</a></li>

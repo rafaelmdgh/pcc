@@ -9,8 +9,8 @@
     <title>Cadastro de Clientes</title>
 </head>
 <body>
-<div class="container personalizado">
-    <div class="caixa-cadastro">
+<div class="container caixa-home">
+    <div class="">
 <h1>Cadastro de clientes</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">

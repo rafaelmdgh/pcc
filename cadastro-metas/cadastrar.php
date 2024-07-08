@@ -9,7 +9,7 @@
     <title>Cadastro de Metas</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Cadastro de Metas</h1>
     <br>
     <form action="salvar_cadastro.php" method="post" enctype="multipart/form-data">

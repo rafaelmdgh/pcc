@@ -27,7 +27,7 @@
     <title>Pagamentos</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Gravar Pagamento</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">

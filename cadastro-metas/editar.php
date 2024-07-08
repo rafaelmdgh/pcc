@@ -22,7 +22,7 @@ $meta = $stmt->fetch();
     <title>Editar Meta</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Editar meta</h1>
     <br>
     <form action="editar_cadastro.php" method="post">

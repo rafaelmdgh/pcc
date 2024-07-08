@@ -22,7 +22,7 @@ $usuario = $stmt->fetch();
     <title>Editar Usuário</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
 <h1>Editar de usuários</h1>
     <br>
     <form action="editar_cadastro.php" method="post">

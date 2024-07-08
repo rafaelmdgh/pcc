@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container personalizado">
-    <div class="caixa-cadastro">
+    <div class="caixa-login">
       <section id="" class=".container-md">
         <h1><strong style="font-family: Brush Script MT, cursive; font-size: 70px">GoalsPlan</strong></h1><br>
         <form class="form-group" action="logar.php" method="post">

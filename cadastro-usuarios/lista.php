@@ -35,7 +35,7 @@ $usuarios = $stmt->fetchAll();
     <title>Usuários</title>
 </head>
 <body>
-<div class="container">
+<div class="container caixa-home">
     <h1>Lista de usuários</h1>
     <br>
     

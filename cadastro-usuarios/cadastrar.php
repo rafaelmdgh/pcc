@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
-        include('../config/conexao_pdo.php'); 
-        include (ROOT_PATH.'/cabecalho.php'); 
+        include('../config/conexao_pdo.php');
+        include('../cabecalho.php'); 
     ?>
     <title>Cadastro de Usuário</title>
 </head>
 <body>
-<div class="container personalizado">
-    <div class="caixa-cadastro">
+<div class="container caixa-home">
     <form action="salvar_cadastro.php" method="post">
 <h1>Cadastro de usuário</h1>
     <br>
@@ -32,7 +31,6 @@
         <br>
         <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
-</div>
 </div>
 </body>
 </html>
