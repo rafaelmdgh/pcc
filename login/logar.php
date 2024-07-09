@@ -10,25 +10,25 @@
             $email = "";
         }
         $senha = $_POST['senha'];
-        $stmt = $pdo->prepare('SELECT * FROM usuario where usuario_email = :email or usuario_username = :usuario');
-        $stmt -> bindValue(':email', $email);
-        $stmt -> bindValue(':usuario', $user);
-        $stmt -> execute();
+    $stmt = $pdo->prepare('SELECT * FROM usuario WHERE usuario_email = :email OR usuario_username = :usuario');
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':usuario', $user);
+    $stmt->execute();
 
         $usuario = $stmt->fetch();
-        //verificar se o usuario existe na minha base de dados
-        if($usuario['usuario_senha'] == $senha){
-            if(($email == $usuario['usuario_email'] or $user == $usuario['usuario_username']) && $senha == $usuario['usuario_senha']){
+    // Verificar se o usuario existe na minha base de dados
+    if ($usuario) {
+        // Verificar a senha usando password_verify
+        if (password_verify($senha, $usuario['usuario_senha'])) {
                 $_SESSION['usuario_codigo'] = $usuario['usuario_codigo'];
                 $_SESSION['usuario_email'] = $usuario['usuario_email'];
                 $_SESSION['usuario_nome'] = $usuario['usuario_nome'];
                 header('location:interno.php');
-                
             } else {
-                echo '<script>alertaErro("Usuário não encontrado!",true)</script>';
-            }
-        }else{
             echo '<script>alertaErro("Usuário/Senha incorreta!",true)</script>';
+        }
+    } else {
+        echo '<script>alertaErro("Usuário não encontrado!",true)</script>';
         }
     } else {
         echo '<script>alertaErro("Envie as informações",true)</script>';

@@ -97,6 +97,7 @@
 					if(isset($_GET['metaConcluida'.$meta['meta_codigo']])){
                         $stmt = $pdo->prepare("UPDATE meta SET meta_nome = CONCAT(meta_nome, ' [Concluída]') WHERE meta_codigo = ".$meta['meta_codigo']." AND meta_usuario = ".$_SESSION['usuario_codigo']." ;");
                         $stmt->execute();
+						echo '<script>alertaSucesso("Meta concluída com sucesso!","index.php")</script>';
                     }
 				}
 			}
