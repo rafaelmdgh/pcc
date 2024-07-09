@@ -7,7 +7,7 @@ $codigo = $_GET['codigo'];
 //recupera um unico registro da consulta
 
 
-$stmt = $pdo->prepare("SELECT * FROM contas_receber WHERE receber_nr_lancamento = :codigo");
+$stmt = $pdo->prepare("SELECT * FROM contas_receber WHERE receber_nr_lancamento = :codigo AND receber_usuario =".$_SESSION['usuario_codigo']."");
 $stmt->bindValue(':codigo', $codigo);
 $stmt->execute();
 
@@ -33,14 +33,14 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
     <title>Editar Recebimento</title>
 </head>
 <body>
-<div class="container caixa-home">
+<div class="container caixa-cadastro">
 <h1>Editar Conta a receber</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
     <p>Número Lançamento</p>
         <p><input class="form-control" type="number" name="nr_lancamento" id="nr_lancamento" value="<?php echo $contas_receber['receber_nr_lancamento'];?>" readonly></p>
         <br>
-        <p>cliente</p>
+        <p>Cliente</p>
         <p><select class="form-select" name="cliente" id="cliente" required value="<?php echo $contas_receber['receber_codigo_cliente'];?>">
                 <option value="" selected>Selecione</option>
                 <?php
@@ -56,14 +56,18 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
         </p>
         <br>
         <p>Valor a receber</p>
-        <p><input class="form-control" type="text" name="valor" id="valor" value="<?php echo $contas_receber['receber_valor'];?>" required></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor" id="valor" value="<?php echo $contas_receber['receber_valor'];?>" required></p>
         <br>
         <p>Histórico</p>
         <p><select class="form-select" name="historico" id="historico" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($historicos as $historico){
-                        echo "<option value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                        if ($historico['historico_codigo'] == $contas_receber['receber_codigo_historico']){
+                            echo "<option selected value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                        }else{
+                            echo "<option value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                        }
                     }
                 ?>
             </select>

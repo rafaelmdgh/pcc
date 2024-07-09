@@ -40,15 +40,15 @@ $contas_receber = $stmt->fetchAll();
     <h1>Lista de Recebimentos</h1>
     
     
-    <form action="baixar_registros.php" method="get">
-        <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
-        <input class="btn btn-primary" type="submit" value="Baixar">
-        <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
-    </form>   
     <div class="container">
         <div class="row">
             <div class="col-md-11">
                 <div class="input-group mb-3">
+                    <form action="baixar_registros.php" method="get">
+                        <input type="hidden" name="registrosSelecionados" id="registrosSelecionados">
+                        <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
+                        <input class="btn btn-primary" type="submit" value="Baixar">
+                    </form>   
                     
                 </div>
             </div>
@@ -71,7 +71,7 @@ $contas_receber = $stmt->fetchAll();
             <th>Seleção</th>
             <th>Número Lançamento</th>
             <th>Data de Vencimento</th>
-            <th>cliente</th>
+            <th>Cliente</th>
             <th>Valor</th>
             <th>Histórico</th>
             <th>Observação</th>
@@ -88,13 +88,13 @@ $contas_receber = $stmt->fetchAll();
             }
             echo "</td>";    
             echo "<td>" . $receber['receber_nr_lancamento']."</td>";
-            echo "<td>" . $receber['receber_dt_vencimento']."</td>";
+            echo "<td><script>document.write(ajustarData('" . $receber['receber_dt_vencimento']."'))</script></td>";
             echo "<td>" . $receber['cliente_nome']."</td>";
-            echo "<td>R$" . str_replace('.',',',$receber['receber_valor'])."</td>";
+            echo "<td><script>document.write(criticaValor(" .$receber['receber_valor']."))</script></td>";
             echo "<td>" . $receber['historico_nome']."</td>";
             echo "<td>" . $receber['receber_observacao']."</td>";
-            echo "<td>" . $receber['receber_dt_emissao']."</td>";
-            echo "<td>" . $receber['receber_dt_baixa']."</td>";
+            echo "<td><script>document.write(ajustarData('" . $receber['receber_dt_emissao']."'))</script></td>";
+            echo "<td><script>document.write(ajustarData('" . $receber['receber_dt_baixa']."'))</script></td>";
             echo "<td><a href='editar.php?codigo=".$receber['receber_nr_lancamento']."'>Editar</a> - <a href='excluir.php?codigo=".$receber['receber_nr_lancamento']."'>Excluir</a> </td>";
             echo "</tr>";
         }

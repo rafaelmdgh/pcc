@@ -9,7 +9,7 @@
     <title>Cadastro de Metas</title>
 </head>
 <body>
-<div class="container caixa-home">
+<div class="container caixa-cadastro">
 <h1>Cadastro de Metas</h1>
     <br>
     <form action="salvar_cadastro.php" method="post" enctype="multipart/form-data">
@@ -17,10 +17,10 @@
         <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
         <p>Valor</p>
-        <p><input class="form-control" type="text" name="valor" id="valor"></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor" id="valor" required></p>
         <br>
         <p>Imagem</p>
-        <p><input class="form-control" type="file" name="imagem" id="imagem" accept="image/png, image/jpeg, image/jpg, image/gif" ></p>
+        <p><input class="form-control" type="file" name="imagem" id="imagem" accept="image/png, image/jpeg, image/jpg, image/gif" required></p>
         <br>
         <input type="submit" class="btn btn-primary" value="Salvar">
     </form>

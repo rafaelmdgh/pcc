@@ -1,7 +1,6 @@
 <?php
-include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
-
+include('../cabecalho.php'); 
 $id = $_GET['id'];
 $sql = "DELETE FROM usuario WHERE id = :id";
 $stmt = $pdo->prepare($sql);

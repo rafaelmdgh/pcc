@@ -42,6 +42,7 @@ $clientes = $stmt->fetchAll();
         <div class="row">
             <div class="col-md-11">
                 <div class="input-group mb-3">
+                    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
                     
                 </div>
             </div>
@@ -60,7 +61,6 @@ $clientes = $stmt->fetchAll();
         </div>          
     </div>
     <table border=1>
-    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -72,7 +72,7 @@ $clientes = $stmt->fetchAll();
             echo "<tr>";
             echo "<td>" . $cliente['cliente_codigo']."</td>";
             echo "<td>" . $cliente['cliente_nome']."</td>";
-            echo "<td>R$" . str_replace('.',',',$cliente['cliente_valor_limite'])."</td>";
+            echo "<td><script>document.write(criticaValor(" .$cliente['cliente_valor_limite']."))</script></td>";
             echo "<td><a href='editar.php?codigo=".$cliente['cliente_codigo']."'>Editar</a> - <a href='excluir.php?codigo=".$cliente['cliente_codigo']."'>Excluir</a> </td>";
             echo "</tr>";
         }

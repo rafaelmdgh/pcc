@@ -14,7 +14,7 @@
     <title>Cadastro de Históricos</title>
 </head>
 <body>
-<div class="container caixa-home">
+<div class="container caixa-cadastro">
 <h1>Cadastro de Históricos</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
@@ -22,7 +22,7 @@
         <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
         <p>Valor Limite</p>
-        <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" ></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor_limite" id="valor_limite" ></p>
         <br>
         <p>Tipo</p>
         <p><select class="form-select" name="tipo" id="tipo" required>

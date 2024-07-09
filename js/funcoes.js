@@ -1,10 +1,20 @@
 function criticaNome(nome){
-	if(nome.length < 3){
-        return false;
-    }else{
-        return true;
+    nome.value = nome.value.replace(/[,.\s]{2,}|[^\w\s]/g, '');
+}
+function criticaUsername(username){
+    username.value = username.value.toLowerCase().replace(/[,.\s]{1,}|[^\w\s]/g, '');
+}
+function criticaSenha(senha){
+    var regex = /^[a-zA-Z0-9]*$/;
+    if (!regex.test(senha.value)) {
+        alert("A senha não pode conter espaços ou caracteres especiais. Apenas letras e números são permitidos.");
+        senha.value = "";
     }
 }
+function criticaTelefone(telefone){
+    let x = telefone.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+    telefone.value = (!x[2]) ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+}    
 function trocarCor(currentUrl) {
     var links = document.querySelectorAll("a");
     for(var i = 0; i < links.length; i++) {
@@ -55,4 +65,8 @@ function ajustarData(data){
     }else{
         return "";
     }
+}
+
+function criticaValor(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }

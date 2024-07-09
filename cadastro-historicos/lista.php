@@ -41,6 +41,7 @@ $historicos = $stmt->fetchAll();
         <div class="row">
             <div class="col-md-11">
                 <div class="input-group mb-3">
+                    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
                     
                 </div>
             </div>
@@ -59,7 +60,6 @@ $historicos = $stmt->fetchAll();
         </div>          
     </div>
     <table border=1>
-<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -72,7 +72,7 @@ $historicos = $stmt->fetchAll();
             echo "<tr>";
             echo "<td>" . $historico['historico_codigo']."</td>";
             echo "<td>" . $historico['historico_nome']."</td>";
-            echo "<td>R$" . str_replace('.',',',$historico['historico_valor_limite'])."</td>";
+            echo "<td><script>document.write(criticaValor(" .$historico['historico_valor_limite']."))</script></td>";
             echo "<td>" . $historico['tipo_nome']."</td>";
             echo '<td><a href="editar.php?codigo='.$historico['historico_codigo'].'">Editar</a> - <a href="excluir.php?codigo='.$historico['historico_codigo'].'">Excluir</a> </td>';
             echo "</tr>";

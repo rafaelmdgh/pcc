@@ -14,7 +14,7 @@ if($_POST){
     $historico = $_POST['historico'];
     $observacao = $_POST['observacao'];
     
-    $sql = "UPDATE contas_receber SET receber_codigo_cliente = :cliente, receber_valor = :valor, receber_dt_vencimento = :dt_vencimento, receber_observacao = :observacao, receber_historico = :historico WHERE receber_nr_lancamento = :nr_lancamento AND receber_usuario = :usuario";
+    $sql = "UPDATE contas_receber SET receber_codigo_cliente = :cliente, receber_valor = :valor, receber_dt_vencimento = :dt_vencimento, receber_observacao = :observacao, receber_codigo_historico = :historico WHERE receber_nr_lancamento = :nr_lancamento AND receber_usuario = :usuario";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':usuario', $usuario);
     $stmt->bindValue(':nr_lancamento', $nr_lancamento);

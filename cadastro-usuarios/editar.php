@@ -2,18 +2,17 @@
 include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
 
-$id = $_GET['id'];
+$codigo = $_SESSION['usuario_codigo'];
 
 //recupera um unico registro da consulta
 
-$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
-$stmt->bindValue(':id', $id);
+$stmt = $pdo->prepare("SELECT * FROM usuario WHERE usuario_codigo = :codigo");
+$stmt->bindValue(':codigo', $codigo);
 $stmt->execute();
 
 $usuario = $stmt->fetch();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,19 +21,24 @@ $usuario = $stmt->fetch();
     <title>Editar Usuário</title>
 </head>
 <body>
-<div class="container caixa-home">
-<h1>Editar de usuários</h1>
-    <br>
+<div class="container caixa-cadastro">
     <form action="editar_cadastro.php" method="post">
-        <input type="hidden" name="id" id="id" value="<?php echo $usuario['id']; ?>">
+<h1>Editar usuário</h1>
+    <br>
         <p>Nome</p>
-        <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $usuario['nome'] ?>" ></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" required value="<?php echo $usuario['usuario_nome']; ?>"></p>
         <br>
         <p>E-mail</p>
-        <p><input class="form-control" type="text" name="email" id="email" value="<?php echo $usuario['email'] ?>" ></p>
+        <p><input class="form-control" type="email" name="email" id="email" required value="<?php echo $usuario['usuario_email']; ?>"></p>
+        <br>
+        <p>Usuário</p>
+        <p><input class="form-control" maxlength="16" onblur="criticaUsername(this)" type="text" name="username" id="username" required value="<?php echo $usuario['usuario_username']; ?>"></p>
+        <br>
+        <p>Celular</p>
+        <p><input class="form-control" onblur="criticaTelefone(this)"placeholder="(99) 99999-9999" maxlength="15" type="text" name="celular" id="celular" value="<?php echo $usuario['usuario_celular']; ?>"></p>
         <br>
         <p>Senha</p>
-        <p><input class="form-control" type="text" name="senha" id="senha" value="<?php echo $usuario['senha'] ?>" ></p>
+        <p><input class="form-control" maxlength="16" onblur="criticaSenha(this)" type="password" name="senha" id="senha" required </p>
         <br>
         <input type="submit" class="btn btn-primary" value="Salvar">
     </form>

@@ -2,7 +2,7 @@ table {
 	font-family: Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
-	margin: 30px 0;
+	margin: 10px 0;
 }
 
 table td, table th {
@@ -58,7 +58,7 @@ table input[type="checkbox"]{
 .caixa-login{
 	display: flex;
 	justify-content: center;
-	margin: 70px;
+	margin: 50px 70px 70px 70px;
 	padding: 60px 20px;
 	width: 40%;
 	border-radius: 15px;
@@ -100,7 +100,7 @@ body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-image: url('https://files.sunoresearch.com.br/p/uploads/2017/12/financas-pessoais.jpg.jpg');
+	background-image: url('/pcc/background.jpg');
 	background-size: cover;
 }
 
@@ -111,8 +111,18 @@ body{
 	padding: 20px;
 	margin-bottom: 20px;
     box-shadow: 10px 10px 5px 3px #b4b3b3;
+	width: 80%;
 }
-
+.caixa-cadastro{
+	display:grid;
+	background-color: #FFFFFF;
+	border-radius: 40px;
+	padding: 20px;
+	margin-bottom: 20px;
+    box-shadow: 10px 10px 5px 3px #b4b3b3;
+	width: 80%;
+	justify-content: center;
+}
 h1{
 	font-size: 35px !important;
 }

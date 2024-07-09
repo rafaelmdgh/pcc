@@ -1,4 +1,5 @@
 <?php 
+	include('../verifica-sessao.php');
 	include('../config/conexao_pdo.php');
 	try {
 		if ($_GET['registrosSelecionados'] != ''){

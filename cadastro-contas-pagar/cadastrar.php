@@ -27,7 +27,7 @@
     <title>Pagamentos</title>
 </head>
 <body>
-<div class="container caixa-home">
+<div class="container caixa-cadastro">
 <h1>Gravar Pagamento</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
@@ -46,7 +46,7 @@
         </p>
         <br>
         <p>Valor a Pagar</p>
-        <p><input class="form-control" type="text" name="valor" id="valor" required></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor" id="valor" required></p>
         <br>
         <p>Histórico</p>
         <p><select class="form-select" name="historico" id="historico" required>

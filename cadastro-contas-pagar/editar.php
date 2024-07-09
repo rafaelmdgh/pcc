@@ -3,12 +3,14 @@ include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
 
 $codigo = $_GET['codigo'];
+$usuario = $_SESSION['usuario_codigo'];
 
 //recupera um unico registro da consulta
 
 
-$stmt = $pdo->prepare("SELECT * FROM contas_pagar WHERE pagar_nr_lancamento = :codigo");
+$stmt = $pdo->prepare("SELECT * FROM contas_pagar WHERE pagar_nr_lancamento = :codigo AND pagar_usuario = :usuario");
 $stmt->bindValue(':codigo', $codigo);
+$stmt->bindValue(':usuario', $usuario);
 $stmt->execute();
 
 $contas_pagar = $stmt->fetch();
@@ -33,7 +35,7 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
     <title>Editar Pagamento</title>
 </head>
 <body>
-<div class="container caixa-home">
+<div class="container caixa-cadastro">
 <h1>Editar Conta a Pagar</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
@@ -56,14 +58,18 @@ $sql = "SELECT historico_usuario, historico_codigo, historico_nome from historic
         </p>
         <br>
         <p>Valor a Pagar</p>
-        <p><input class="form-control" type="text" name="valor" id="valor" value="<?php echo $contas_pagar['pagar_valor'];?>" required></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor" id="valor" value="<?php echo $contas_pagar['pagar_valor'];?>" required></p>
         <br>
         <p>Histórico</p>
         <p><select class="form-select" name="historico" id="historico" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($historicos as $historico){
-                        echo "<option value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                        if ($historico['historico_codigo'] == $contas_pagar['pagar_codigo_historico']){
+                            echo "<option selected value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                        }else{
+                            echo "<option value='".$historico['historico_codigo']."'>".$historico['historico_nome']."</option>";
+                        }
                     }
                 ?>
             </select>

@@ -44,6 +44,7 @@ $metas = $stmt->fetchAll();
             <div class="col-md-11">
                 <div class="input-group mb-3">
                     
+                    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
                 </div>
             </div>
             <div class="col-md-1">
@@ -61,7 +62,6 @@ $metas = $stmt->fetchAll();
         </div>          
     </div>
         <table border=1>
-<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
@@ -73,7 +73,7 @@ $metas = $stmt->fetchAll();
                 echo "<tr>";
                 echo "<td>" . $meta['meta_codigo']."</td>";
                 echo "<td>" . $meta['meta_nome']."</td>";
-                echo "<td>R$" . str_replace('.',',',$meta['meta_valor'])."</td>";
+                echo "<td><script>document.write(criticaValor(" .$meta['meta_valor']."))</script></td>";
                 echo "<td><a href='editar.php?codigo=".$meta['meta_codigo']."'>Editar</a> - <a href='excluir.php?codigo=".$meta['meta_codigo']."'>Excluir</a> </td>";
                 echo "</tr>";
             }

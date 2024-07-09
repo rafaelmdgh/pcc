@@ -42,6 +42,7 @@ $fornecedores = $stmt->fetchAll();
             <div class="col-md-11">
                 <div class="input-group mb-3">
                     
+                    <input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
                 </div>
             </div>
             <div class="col-md-1">
@@ -59,7 +60,6 @@ $fornecedores = $stmt->fetchAll();
         </div>          
     </div>
     <table border=1>
-<input type="button" class="btn btn-primary" onclick="location.href='cadastrar.php'" value="Adicionar" />
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -71,7 +71,7 @@ $fornecedores = $stmt->fetchAll();
             echo "<tr>";
             echo "<td>" . $fornecedor['fornecedor_codigo']."</td>";
             echo "<td>" . $fornecedor['fornecedor_nome']."</td>";
-            echo "<td>R$" . str_replace('.',',',$fornecedor['fornecedor_valor_limite'])."</td>";
+            echo "<td><script>document.write(criticaValor(" .$fornecedor['fornecedor_valor_limite']."))</script></td>";
             echo "<td><a href='editar.php?codigo=".$fornecedor['fornecedor_codigo']."'>Editar</a> - <a href='excluir.php?codigo=".$fornecedor['fornecedor_codigo']."'>Excluir</a> </td>";
             echo "</tr>";
         }

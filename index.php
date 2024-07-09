@@ -6,11 +6,11 @@
 	$stmt->execute();
 	$metas = $stmt->fetchAll();
 
-	$stmt = $pdo->prepare("SELECT SUM(pagar_valor) total FROM contas_pagar WHERE pagar_usuario = ".$_SESSION["usuario_codigo"]." AND pagar_dt_baixa != '0001-01-01' ;");
+	$stmt = $pdo->prepare("SELECT SUM(pagar_valor) total FROM contas_pagar WHERE pagar_usuario = ".$_SESSION["usuario_codigo"]." AND pagar_dt_baixa != '0000-00-00' ;");
 	$stmt->execute();
 	$valor_pagar = $stmt->fetch();
 
-	$stmt = $pdo->prepare("SELECT SUM(receber_valor) total FROM contas_receber WHERE receber_usuario = ".$_SESSION["usuario_codigo"]." AND receber_dt_baixa != '0001-01-01' ;");
+	$stmt = $pdo->prepare("SELECT SUM(receber_valor) total FROM contas_receber WHERE receber_usuario = ".$_SESSION["usuario_codigo"]." AND receber_dt_baixa != '0000-00-00' ;");
 	$stmt->execute();
 	$valor_receber = $stmt->fetch();
 
@@ -30,7 +30,7 @@
 				<h1>Olá, <?php echo $_SESSION['usuario_nome'] ?></h1> 
 			</div>
 			<div class="col-md-6">
-				<h2 style="text-align: right;">Saldo: R$<?php echo $valorNaConta ?></h2>
+				<h2 style="text-align: right;">Saldo: <?php echo "<script>document.write(criticaValor(".$valorNaConta."))</script>"; ?></h2>
 
 			</div>
 		</div>
@@ -39,11 +39,21 @@
 		
 			<div class="row">
 			<div class="col-md-12">
-				<center>
-					<h1>
-						Veja o progresso das suas metas:
-					</h1>
-				</center>
+			<?php 
+				if(!(json_encode($metas) == '[]')){
+					echo '<center>
+						<h1>
+							Veja o progresso das suas metas: 
+						</h1>
+					</center>';
+				}else{
+					echo '<center>
+							<h1>
+								Você não tem metas cadastradas. 
+							</h1>
+						</center>';
+				}
+			?>	
 			</div>
 			</div>
 			<br>
@@ -57,7 +67,7 @@
 					<img class="card-img-top img-meta" src="/pcc/cadastro-metas/imagens/'.$meta['meta_imagem'].'" alt="Imagem de capa do card">
 					<div class="card-body">
 						
-						<p class="card-text">Valor: R$'.$meta['meta_valor'].'</p>
+						<p class="card-text">Valor: <script>document.write(criticaValor('.$meta['meta_valor'].'))</script></p>
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" style="width: '.$porcentagem.'%;" aria-valuenow="'.$porcentagem.'" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
@@ -66,7 +76,7 @@
 				if ($porcentagem > 100){
 					echo '<div class="card-legenda">Você tem o valor necessário!</div>';
 				}else{
-					echo '<div class="card-legenda">R$'.$valorNaConta.'/R$'.$meta['meta_valor'].'</div>';
+					echo '<div class="card-legenda"><script>document.write(criticaValor('.$valorNaConta.'))</script>/<script>document.write(criticaValor('.$meta['meta_valor'].'))</script></div>';
 				}
 				echo '	
 				</div>

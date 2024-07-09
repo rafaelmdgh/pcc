@@ -6,7 +6,7 @@ $codigo = $_GET['codigo'];
 
 //recupera um unico registro da consulta
 
-$stmt = $pdo->prepare("SELECT * FROM cliente WHERE cliente_codigo = :codigo");
+$stmt = $pdo->prepare("SELECT * FROM cliente WHERE cliente_codigo = :codigo AND cliente_usuario =".$_SESSION['usuario_codigo']."");
 $stmt->bindValue(':codigo', $codigo);
 $stmt->execute();
 
@@ -22,7 +22,7 @@ $cliente = $stmt->fetch();
     <title>Editar Cliente</title>
 </head>
 <body>
-<div class="container caixa-home">
+<div class="container caixa-cadastro">
 <h1>Editar cliente</h1>
     <br>
     <form action="editar_cadastro.php" method="post">
@@ -31,7 +31,7 @@ $cliente = $stmt->fetch();
         <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $cliente['cliente_nome'] ?>" ></p>
         <br>
         <p>Valor Limite</p>
-        <p><input class="form-control" type="text" name="valor_limite" id="valor_limite" value="<?php echo $cliente['cliente_valor_limite'] ?>" ></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor_limite" id="valor_limite" value="<?php echo $cliente['cliente_valor_limite'] ?>" ></p>
         <br>
         <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
