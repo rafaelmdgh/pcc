@@ -30,7 +30,7 @@ $meta = $stmt->fetch();
         <p>Nome</p>
         <p><input class="form-control" type="text" name="nome" id="nome" value="<?php echo $meta['meta_nome'] ?>" ></p>
         <br>
-        <p>Valora</p>
+        <p>Valor</p>
         <p><input class="form-control" type="number" step="0.01" min=0 name="valor" id="valor" value="<?php echo $meta['meta_valor'] ?>" ></p>
         <br>
         <input type="submit" class="btn btn-primary" value="Salvar">
