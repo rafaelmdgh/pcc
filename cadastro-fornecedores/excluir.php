@@ -1,5 +1,7 @@
 <?php
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
+
 $codigo = $_GET['codigo'];
 $usuario = $_SESSION['usuario_codigo'];
 
@@ -10,6 +12,6 @@ $stmt->bindValue(':usuario', $usuario);
 $stmt->execute();
 
 
-echo "<br>Excluido com sucesso!";
-echo "<br><a href='lista.php'>Lista de usuários</a>";
+echo '<script>alertaSucesso("Excluído com sucesso!","lista.php")</script>';
+
 ?>

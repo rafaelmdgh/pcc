@@ -11,21 +11,21 @@
         $tipos = $stmt->fetchAll();
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de historicos</title>
+    <title>Cadastro de Históricos</title>
 </head>
 <body>
-<div class="container">
-<h1>Cadastro de historicos</h1>
+<div class="container caixa-cadastro">
+<h1>Cadastro de Históricos</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Nome</p>
-        <p><input type="text" name="nome" id="nome" required></p>
+        <p><input class="form-control" type="text" name="nome" id="nome" required></p>
         <br>
         <p>Valor Limite</p>
-        <p><input type="text" name="valor_limite" id="valor_limite" ></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor_limite" id="valor_limite" ></p>
         <br>
         <p>Tipo</p>
-        <p><select name="tipo" id="tipo" required>
+        <p><select class="form-select" name="tipo" id="tipo" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($tipos as $tipo){
@@ -34,7 +34,7 @@
                 ?>
             </select>
         </p>
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

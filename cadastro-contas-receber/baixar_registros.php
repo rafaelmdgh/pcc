@@ -1,14 +1,13 @@
 <?php 
 	include('../verifica-sessao.php');
-include('../config/conexao_pdo.php');
-
+	include('../config/conexao_pdo.php');
 	try {
 		if ($_GET['registrosSelecionados'] != ''){
 			$registrosSelecionados = explode(',',$_GET['registrosSelecionados']);
 			$usuario = $_SESSION['usuario_codigo'];
 			$dataAtual = date("Y-m-d");
 			foreach($registrosSelecionados as $registro){
-				$sql = "UPDATE contas_pagar SET pagar_dt_baixa = :dt_baixa WHERE pagar_nr_lancamento = :nr_lancamento AND pagar_usuario = :usuario";
+				$sql = "UPDATE contas_receber SET receber_dt_baixa = :dt_baixa WHERE receber_nr_lancamento = :nr_lancamento AND receber_usuario = :usuario";
 				$stmt = $pdo->prepare($sql);
 				$stmt->bindValue(':usuario', $usuario);
 				$stmt->bindValue(':nr_lancamento', $registro);

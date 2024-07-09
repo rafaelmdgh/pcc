@@ -1,25 +1,37 @@
 <?php 
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
 
 
 
+
 if($_POST){
-    $codigo = $_POST["codigo"];
-    $nome = $_POST["nome"];
-    $valor_limite = $_POST['valor_limite'];
+    $usuario = $_SESSION['usuario_codigo'];
+    $nr_lancamento = $_POST['nr_lancamento'];
+    $cliente = $_POST['cliente'];
+    $valor = $_POST['valor'];
+    $dt_vencimento = $_POST['dt_vencimento'];
+    $historico = $_POST['historico'];
+    $observacao = $_POST['observacao'];
     
-    $sql = "UPDATE contas_receber SET contas_receber_nome = :nome, contas_receber_valor_limite = :valor_limite WHERE contas_receber_codigo = :codigo";
+    $sql = "UPDATE contas_receber SET receber_codigo_cliente = :cliente, receber_valor = :valor, receber_dt_vencimento = :dt_vencimento, receber_observacao = :observacao, receber_codigo_historico = :historico WHERE receber_nr_lancamento = :nr_lancamento AND receber_usuario = :usuario";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':nome', $nome);
-    $stmt->bindValue(':valor_limite', $valor_limite);
-    $stmt->bindValue(':codigo', $codigo);
+    $stmt->bindValue(':usuario', $usuario);
+    $stmt->bindValue(':nr_lancamento', $nr_lancamento);
+    $stmt->bindValue(':cliente', $cliente);
+    $stmt->bindValue(':valor', str_replace(',','.',$valor));
+    $stmt->bindValue(':historico', $historico);
+    $stmt->bindValue(':dt_vencimento', $dt_vencimento);
+    $stmt->bindValue(':observacao', $observacao);
     
     $stmt->execute();
 
-    echo "<br>Cadastrado com sucesso!";
-    echo "<br><a href='lista.php'>Lista de contas_recebers</a>";
+    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
+    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
 } else {
-    echo "ERRO! Informe os dados";
+    echo '<script>alertaErro("Erro! Informe os dados.",true)</script>';
 }
 
 ?>

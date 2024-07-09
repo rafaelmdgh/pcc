@@ -1,5 +1,7 @@
 <?php 
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
+
 
 if($_POST){
     $usuario = $_SESSION['usuario_codigo'];
@@ -15,10 +17,12 @@ if($_POST){
     $stmt->bindValue(':valor_limite', str_replace(',','.',$valor_limite));
     $stmt->bindValue(':tipo', $tipo);
     $stmt->execute();
-    echo "<br>Cadastrado com sucesso!";
-    echo "<br><a href='lista.php'>Lista de historicos</a>";
+    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
+    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
 } else {
-    echo "ERRO! Informe os dados";
+    echo '<script>alertaErro("Erro! Informe os dados.",true)</script>';
 }
 
 ?>

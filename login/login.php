@@ -10,22 +10,20 @@
   <title>Login</title>
 </head>
 <body>
-<div class="container">
-  <center>
-    
-      <h1>Login</h1><br>
+<div class="container personalizado">
+    <div class="caixa-login">
       <section id="" class=".container-md">
-        <form action="logar.php" method="post">
+        <h1><strong style="font-family: Brush Script MT, cursive; font-size: 70px">GoalsPlan</strong></h1><br>
+        <form class="form-group" action="logar.php" method="post">
           <label for="email">Usuário/Email:</label><br>
-          <input type="text" name="email" id="usuario"><br><br>
+          <input class="form-control" type="text" name="email" id="usuario"><br><br>
           <label for="senha">Senha:</label><br>
-          <input type="password" name="senha" id="senha"><br><br>
-          <input type="submit" value="Entrar"><br>
+          <input class="form-control" type="password" name="senha" id="senha"><br><br>
+          <input class="form-control btn btn-primary" type="submit" value="Entrar"><br>
           <p>Não possui conta?<a href="../cadastro-usuarios/cadastrar.php"> Cadastre-se. </a></p>
         </form>
       </section>
-    </
-  </center>
+    </div>
 </div>
 </body>
 </html>

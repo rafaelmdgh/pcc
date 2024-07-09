@@ -24,18 +24,18 @@
         }
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contas a Pagar</title>
+    <title>Pagamentos</title>
 </head>
 <body>
-<div class="container">
-<h1>Contas a pagar</h1>
+<div class="container caixa-cadastro">
+<h1>Gravar Pagamento</h1>
     <br>
     <form action="salvar_cadastro.php" method="post">
         <p>Número Lançamento</p>
-        <p><input type="number" name="nr_lancamento" id="nr_lancamento" value="<?php echo $proximaInsercao;?>" readonly></p>
+        <p><input class="form-control" type="number" name="nr_lancamento" id="nr_lancamento" value="<?php echo $proximaInsercao;?>" readonly></p>
         <br>
         <p>Fornecedor</p>
-        <p><select name="fornecedor" id="fornecedor" required>
+        <p><select class="form-select" name="fornecedor" id="fornecedor" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($fornecedores as $fornecedor){
@@ -46,10 +46,10 @@
         </p>
         <br>
         <p>Valor a Pagar</p>
-        <p><input type="text" name="valor" id="valor" required></p>
+        <p><input class="form-control" type="number" step="0.01" min=0 name="valor" id="valor" required></p>
         <br>
         <p>Histórico</p>
-        <p><select name="historico" id="historico" required>
+        <p><select class="form-select" name="historico" id="historico" required>
                 <option value="" selected>Selecione</option>
                 <?php
                     foreach ($historicos as $historico){
@@ -60,11 +60,11 @@
         </p>
         <br>
         <p>Data de Vencimento</p>
-        <p><input type="date" name="dt_vencimento" id="dt_vencimento" required></p>
+        <p><input class="form-control" type="date" name="dt_vencimento" id="dt_vencimento" required></p>
         <br>
         <p>Observação</p>
-        <p><textarea name="observacao" id="observacao"></textarea></p>
-        <input type="submit" value="Salvar">
+        <p><textarea class="form-control" name="observacao" id="observacao"></textarea></p>
+        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 </body>

@@ -1,5 +1,7 @@
 <?php 
+include('../verifica-sessao.php');
 include('../config/conexao_pdo.php');
+
 
 if($_POST){
     $usuario = $_SESSION['usuario_codigo'];
@@ -10,7 +12,7 @@ if($_POST){
     $observacao = $_POST['observacao'];
     $dataAtual = date("Y-m-d");
 
-    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_codigo_fornecedor, pagar_valor, pagar_dt_vencimento, pagar_observacao, pagar_dt_emissao, pagar_historico) VALUES (:usuario, :fornecedor, :valor, :dt_vencimento, :observacao, :dt_emissao, :historico)";
+    $sql = "INSERT INTO contas_pagar (pagar_usuario, pagar_codigo_fornecedor, pagar_valor, pagar_dt_vencimento, pagar_observacao, pagar_dt_emissao, pagar_codigo_historico) VALUES (:usuario, :fornecedor, :valor, :dt_vencimento, :observacao, :dt_emissao, :historico)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':usuario', $usuario);
@@ -21,10 +23,12 @@ if($_POST){
     $stmt->bindValue(':dt_emissao', $dataAtual);
     $stmt->bindValue(':historico', $historico);
     $stmt->execute();
-    echo "<br>Cadastrado com sucesso!";
-    echo "<br><a href='lista.php'>Lista de contas_pagars</a>";
+    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
+    echo '<script>alertaSucesso("Cadastrado com sucesso!","lista.php")</script>';
+
 } else {
-    echo "ERRO! Informe os dados";
+    echo '<script>alertaErro("Erro! Informe os dados.",true)</script>';
 }
 
 ?>
